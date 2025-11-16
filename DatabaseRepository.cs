@@ -480,41 +480,48 @@ public class DatabaseRepository
 
     // PASTE THIS COMPLETE REPLACEMENT into DatabaseRepository.cs
 
+    // PASTE THIS COMPLETE AND FINAL VERSION INTO YOUR DatabaseRepository.cs FILE
+
     public List<DashboardTransactionView> GetDashboardTransactions()
     {
         var transactionViews = new List<DashboardTransactionView>();
 
         string sql = @"
-        SELECT 
-            t.TransactionID,
-            t.ProductID,
-            p.Barcode,
-            p.Description AS ProductDescription,
-            t.TransactionType,
-            CASE 
-                WHEN t.TransactionType = 'Delivery' THEN si.UnitPrice 
-                ELSE p.PurchaseCost 
-            END AS Price,
-            s.DeliverTo AS CustomerName,
-            t.StockBefore,
-            t.StockAfter,
-            t.TransactionDate,
-            t.SupplierID,
-            sup.Name AS SupplierName
-        FROM 
-            Transactions t
-        INNER JOIN 
-            Products p ON t.ProductID = p.ProductID
-        LEFT JOIN 
-            Suppliers sup ON t.SupplierID = sup.SupplierID
-        LEFT JOIN 
-            SaleItems si ON t.SaleItemID = si.SaleItemID
-        LEFT JOIN 
-            Sales s ON si.SaleID = s.SaleID
-        ORDER BY 
-            t.TransactionID DESC
-        LIMIT 50;
-    ";
+    SELECT
+        t.TransactionID,
+        t.ProductID,
+        p.Barcode,
+        p.Description AS ProductDescription,
+        t.TransactionType,
+        CASE
+            WHEN t.TransactionType = 'Delivery' THEN si.UnitPrice
+            ELSE p.PurchaseCost
+        END AS Price,
+        s.DeliverTo AS CustomerName,
+        t.StockBefore,
+        t.StockAfter,
+        t.TransactionDate,
+        t.SupplierID,
+        sup.Name AS SupplierName,
+
+        -- === FIX: ADD THESE TWO COLUMNS TO THE QUERY ===
+        t.QuantityChange,
+        p.PurchaseCost
+
+    FROM
+        Transactions t
+    INNER JOIN
+        Products p ON t.ProductID = p.ProductID
+    LEFT JOIN
+        Suppliers sup ON t.SupplierID = sup.SupplierID
+    LEFT JOIN
+        SaleItems si ON t.SaleItemID = si.SaleItemID
+    LEFT JOIN
+        Sales s ON si.SaleID = s.SaleID
+    ORDER BY
+        t.TransactionID DESC
+    LIMIT 50;
+";
 
         using (var connection = new SQLiteConnection(connectionString))
         {
@@ -525,8 +532,6 @@ public class DatabaseRepository
                 {
                     while (reader.Read())
                     {
-                        // --- THIS IS THE CORRECTED PART ---
-                        // Property names now correctly match your DashboardTransactionView class.
                         var view = new DashboardTransactionView
                         {
                             TransactionID = Convert.ToInt32(reader["TransactionID"]),
@@ -536,11 +541,15 @@ public class DatabaseRepository
                             TransactionType = reader["TransactionType"].ToString(),
                             Price = reader["Price"] is DBNull ? 0 : Convert.ToDecimal(reader["Price"]),
                             CustomerName = reader["CustomerName"] is DBNull ? "" : reader["CustomerName"].ToString(),
-                            StockBefore = Convert.ToInt32(reader["StockBefore"]), // CORRECTED
-                            StockAfter = Convert.ToInt32(reader["StockAfter"]),   // CORRECTED
+                            StockBefore = Convert.ToInt32(reader["StockBefore"]),
+                            StockAfter = Convert.ToInt32(reader["StockAfter"]),
                             TransactionDate = Convert.ToDateTime(reader["TransactionDate"]),
                             SupplierID = reader["SupplierID"] is DBNull ? (int?)null : Convert.ToInt32(reader["SupplierID"]),
-                            SupplierName = reader["SupplierName"] is DBNull ? "" : reader["SupplierName"].ToString()
+                            SupplierName = reader["SupplierName"] is DBNull ? "" : reader["SupplierName"].ToString(),
+
+                            // === FIX: MAP THE NEWLY ADDED DATA TO THE OBJECT ===
+                            QuantityChange = Convert.ToInt32(reader["QuantityChange"]),
+                            PurchaseCost = reader["PurchaseCost"] is DBNull ? 0 : Convert.ToDecimal(reader["PurchaseCost"])
                         };
                         transactionViews.Add(view);
                     }

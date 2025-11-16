@@ -119,7 +119,6 @@
             this.pnlQuickActions = new System.Windows.Forms.Panel();
             this.btnQuickDelivery = new System.Windows.Forms.Button();
             this.btnQuickSupply = new System.Windows.Forms.Button();
-            this.ucTransactionHistory1 = new InventorySystem.ucTransactionHistory();
             this.dgvRecentTransactions = new System.Windows.Forms.DataGridView();
             this.lblHistoryTitle = new System.Windows.Forms.Label();
             this.pnlKpiContainer = new System.Windows.Forms.FlowLayoutPanel();
@@ -135,6 +134,7 @@
             this.pnlKpiInventoryValue = new System.Windows.Forms.Panel();
             this.blInventoryValueTitle = new System.Windows.Forms.Label();
             this.lblInventoryValueValue = new System.Windows.Forms.Label();
+            this.ucTransactionHistory1 = new InventorySystem.ucTransactionHistory();
             this.pnlNavigation.SuspendLayout();
             this.pnlMainContent.SuspendLayout();
             this.pnlTransactionSummary.SuspendLayout();
@@ -185,8 +185,9 @@
             this.pnlNavigation.Controls.Add(this.btnViewInventory);
             this.pnlNavigation.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlNavigation.Location = new System.Drawing.Point(0, 0);
+            this.pnlNavigation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlNavigation.Name = "pnlNavigation";
-            this.pnlNavigation.Size = new System.Drawing.Size(180, 964);
+            this.pnlNavigation.Size = new System.Drawing.Size(240, 846);
             this.pnlNavigation.TabIndex = 0;
             // 
             // btnViewReports
@@ -200,10 +201,11 @@
             this.btnViewReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnViewReports.ImageIndex = 4;
             this.btnViewReports.ImageList = this.imageListNav;
-            this.btnViewReports.Location = new System.Drawing.Point(0, 136);
+            this.btnViewReports.Location = new System.Drawing.Point(0, 168);
+            this.btnViewReports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnViewReports.Name = "btnViewReports";
-            this.btnViewReports.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnViewReports.Size = new System.Drawing.Size(180, 36);
+            this.btnViewReports.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnViewReports.Size = new System.Drawing.Size(240, 44);
             this.btnViewReports.TabIndex = 7;
             this.btnViewReports.Text = "View Reports";
             this.btnViewReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -229,9 +231,10 @@
             this.lblNotificationCount.BackColor = System.Drawing.Color.Red;
             this.lblNotificationCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNotificationCount.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.lblNotificationCount.Location = new System.Drawing.Point(139, 111);
+            this.lblNotificationCount.Location = new System.Drawing.Point(185, 137);
+            this.lblNotificationCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNotificationCount.Name = "lblNotificationCount";
-            this.lblNotificationCount.Size = new System.Drawing.Size(22, 22);
+            this.lblNotificationCount.Size = new System.Drawing.Size(29, 27);
             this.lblNotificationCount.TabIndex = 5;
             this.lblNotificationCount.Text = "0";
             this.lblNotificationCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -247,10 +250,11 @@
             this.btnNavNotifications.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNavNotifications.ImageIndex = 3;
             this.btnNavNotifications.ImageList = this.imageListNav;
-            this.btnNavNotifications.Location = new System.Drawing.Point(0, 104);
+            this.btnNavNotifications.Location = new System.Drawing.Point(0, 129);
+            this.btnNavNotifications.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNavNotifications.Name = "btnNavNotifications";
-            this.btnNavNotifications.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnNavNotifications.Size = new System.Drawing.Size(180, 32);
+            this.btnNavNotifications.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnNavNotifications.Size = new System.Drawing.Size(240, 39);
             this.btnNavNotifications.TabIndex = 2;
             this.btnNavNotifications.Text = "Notifications";
             this.btnNavNotifications.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -271,10 +275,11 @@
             this.btnManageSuppliers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManageSuppliers.ImageIndex = 2;
             this.btnManageSuppliers.ImageList = this.imageListNav;
-            this.btnManageSuppliers.Location = new System.Drawing.Point(0, 71);
+            this.btnManageSuppliers.Location = new System.Drawing.Point(0, 88);
+            this.btnManageSuppliers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnManageSuppliers.Name = "btnManageSuppliers";
-            this.btnManageSuppliers.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnManageSuppliers.Size = new System.Drawing.Size(180, 33);
+            this.btnManageSuppliers.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnManageSuppliers.Size = new System.Drawing.Size(240, 41);
             this.btnManageSuppliers.TabIndex = 6;
             this.btnManageSuppliers.Text = "Manage Suppliers";
             this.btnManageSuppliers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -295,10 +300,11 @@
             this.btnNavManageUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNavManageUsers.ImageIndex = 1;
             this.btnNavManageUsers.ImageList = this.imageListNav;
-            this.btnNavManageUsers.Location = new System.Drawing.Point(0, 38);
+            this.btnNavManageUsers.Location = new System.Drawing.Point(0, 47);
+            this.btnNavManageUsers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNavManageUsers.Name = "btnNavManageUsers";
-            this.btnNavManageUsers.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnNavManageUsers.Size = new System.Drawing.Size(180, 33);
+            this.btnNavManageUsers.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnNavManageUsers.Size = new System.Drawing.Size(240, 41);
             this.btnNavManageUsers.TabIndex = 1;
             this.btnNavManageUsers.Text = "Manage Users";
             this.btnNavManageUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -319,10 +325,11 @@
             this.btnNavLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNavLogout.ImageIndex = 5;
             this.btnNavLogout.ImageList = this.imageListNav;
-            this.btnNavLogout.Location = new System.Drawing.Point(0, 895);
+            this.btnNavLogout.Location = new System.Drawing.Point(0, 761);
+            this.btnNavLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNavLogout.Name = "btnNavLogout";
-            this.btnNavLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnNavLogout.Size = new System.Drawing.Size(180, 39);
+            this.btnNavLogout.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnNavLogout.Size = new System.Drawing.Size(240, 48);
             this.btnNavLogout.TabIndex = 3;
             this.btnNavLogout.Text = "Logout";
             this.btnNavLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -335,9 +342,10 @@
             // PanelSpacer
             // 
             this.PanelSpacer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PanelSpacer.Location = new System.Drawing.Point(0, 934);
+            this.PanelSpacer.Location = new System.Drawing.Point(0, 809);
+            this.PanelSpacer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PanelSpacer.Name = "PanelSpacer";
-            this.PanelSpacer.Size = new System.Drawing.Size(180, 30);
+            this.PanelSpacer.Size = new System.Drawing.Size(240, 37);
             this.PanelSpacer.TabIndex = 4;
             // 
             // btnViewInventory
@@ -352,9 +360,10 @@
             this.btnViewInventory.ImageIndex = 0;
             this.btnViewInventory.ImageList = this.imageListNav;
             this.btnViewInventory.Location = new System.Drawing.Point(0, 0);
+            this.btnViewInventory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnViewInventory.Name = "btnViewInventory";
-            this.btnViewInventory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnViewInventory.Size = new System.Drawing.Size(180, 38);
+            this.btnViewInventory.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.btnViewInventory.Size = new System.Drawing.Size(240, 47);
             this.btnViewInventory.TabIndex = 0;
             this.btnViewInventory.Text = "View Inventory";
             this.btnViewInventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -376,9 +385,10 @@
             this.pnlMainContent.Controls.Add(this.lblHistoryTitle);
             this.pnlMainContent.Controls.Add(this.pnlKpiContainer);
             this.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMainContent.Location = new System.Drawing.Point(180, 0);
+            this.pnlMainContent.Location = new System.Drawing.Point(240, 0);
+            this.pnlMainContent.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlMainContent.Name = "pnlMainContent";
-            this.pnlMainContent.Size = new System.Drawing.Size(1447, 964);
+            this.pnlMainContent.Size = new System.Drawing.Size(1300, 846);
             this.pnlMainContent.TabIndex = 1;
             // 
             // pnlTransactionSummary
@@ -389,9 +399,10 @@
             this.pnlTransactionSummary.Controls.Add(this.lblDateRange);
             this.pnlTransactionSummary.Controls.Add(this.lblSummaryTitle);
             this.pnlTransactionSummary.Controls.Add(this.lblTransactionValue);
-            this.pnlTransactionSummary.Location = new System.Drawing.Point(1051, 618);
+            this.pnlTransactionSummary.Location = new System.Drawing.Point(896, 421);
+            this.pnlTransactionSummary.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlTransactionSummary.Name = "pnlTransactionSummary";
-            this.pnlTransactionSummary.Size = new System.Drawing.Size(393, 100);
+            this.pnlTransactionSummary.Size = new System.Drawing.Size(399, 123);
             this.pnlTransactionSummary.TabIndex = 9;
             // 
             // lblDateRange
@@ -399,9 +410,10 @@
             this.lblDateRange.AutoSize = true;
             this.lblDateRange.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateRange.ForeColor = System.Drawing.Color.Black;
-            this.lblDateRange.Location = new System.Drawing.Point(3, 42);
+            this.lblDateRange.Location = new System.Drawing.Point(4, 52);
+            this.lblDateRange.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDateRange.Name = "lblDateRange";
-            this.lblDateRange.Size = new System.Drawing.Size(148, 21);
+            this.lblDateRange.Size = new System.Drawing.Size(187, 28);
             this.lblDateRange.TabIndex = 9;
             this.lblDateRange.Text = "Showing From... to...";
             this.lblDateRange.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -411,9 +423,10 @@
             this.lblSummaryTitle.AutoSize = true;
             this.lblSummaryTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSummaryTitle.ForeColor = System.Drawing.Color.Black;
-            this.lblSummaryTitle.Location = new System.Drawing.Point(3, 9);
+            this.lblSummaryTitle.Location = new System.Drawing.Point(4, 11);
+            this.lblSummaryTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSummaryTitle.Name = "lblSummaryTitle";
-            this.lblSummaryTitle.Size = new System.Drawing.Size(141, 21);
+            this.lblSummaryTitle.Size = new System.Drawing.Size(174, 28);
             this.lblSummaryTitle.TabIndex = 0;
             this.lblSummaryTitle.Text = "Transactions Value:";
             this.lblSummaryTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -423,9 +436,10 @@
             this.lblTransactionValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTransactionValue.AutoSize = true;
             this.lblTransactionValue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTransactionValue.Location = new System.Drawing.Point(158, 9);
+            this.lblTransactionValue.Location = new System.Drawing.Point(174, 11);
+            this.lblTransactionValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTransactionValue.Name = "lblTransactionValue";
-            this.lblTransactionValue.Size = new System.Drawing.Size(161, 21);
+            this.lblTransactionValue.Size = new System.Drawing.Size(196, 28);
             this.lblTransactionValue.TabIndex = 8;
             this.lblTransactionValue.Text = "lblTransactionValue";
             this.lblTransactionValue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -437,9 +451,10 @@
             this.pnlContextContainer.Controls.Add(this.pnlTodaysTransactions);
             this.pnlContextContainer.Controls.Add(this.pnlProductMetadata);
             this.pnlContextContainer.Controls.Add(this.pnlChartData);
-            this.pnlContextContainer.Location = new System.Drawing.Point(672, 619);
+            this.pnlContextContainer.Location = new System.Drawing.Point(896, 422);
+            this.pnlContextContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlContextContainer.Name = "pnlContextContainer";
-            this.pnlContextContainer.Size = new System.Drawing.Size(370, 342);
+            this.pnlContextContainer.Size = new System.Drawing.Size(0, 421);
             this.pnlContextContainer.TabIndex = 12;
             // 
             // pnlTodaysTransactions
@@ -447,8 +462,9 @@
             this.pnlTodaysTransactions.Controls.Add(this.dgvTodaysTransactions);
             this.pnlTodaysTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlTodaysTransactions.Location = new System.Drawing.Point(0, 0);
+            this.pnlTodaysTransactions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlTodaysTransactions.Name = "pnlTodaysTransactions";
-            this.pnlTodaysTransactions.Size = new System.Drawing.Size(370, 342);
+            this.pnlTodaysTransactions.Size = new System.Drawing.Size(0, 421);
             this.pnlTodaysTransactions.TabIndex = 13;
             // 
             // dgvTodaysTransactions
@@ -458,10 +474,12 @@
             this.dgvTodaysTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTodaysTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvTodaysTransactions.Location = new System.Drawing.Point(0, 0);
+            this.dgvTodaysTransactions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvTodaysTransactions.Name = "dgvTodaysTransactions";
             this.dgvTodaysTransactions.ReadOnly = true;
             this.dgvTodaysTransactions.RowHeadersVisible = false;
-            this.dgvTodaysTransactions.Size = new System.Drawing.Size(370, 342);
+            this.dgvTodaysTransactions.RowHeadersWidth = 51;
+            this.dgvTodaysTransactions.Size = new System.Drawing.Size(0, 421);
             this.dgvTodaysTransactions.TabIndex = 0;
             this.dgvTodaysTransactions.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTodaysTransactions_CellFormatting);
             // 
@@ -471,8 +489,9 @@
             this.pnlProductMetadata.Controls.Add(this.tableLayoutPanel2);
             this.pnlProductMetadata.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlProductMetadata.Location = new System.Drawing.Point(0, 0);
+            this.pnlProductMetadata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlProductMetadata.Name = "pnlProductMetadata";
-            this.pnlProductMetadata.Size = new System.Drawing.Size(370, 342);
+            this.pnlProductMetadata.Size = new System.Drawing.Size(0, 421);
             this.pnlProductMetadata.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -492,6 +511,7 @@
             this.tableLayoutPanel2.Controls.Add(this.lblDetailSellingPriceTitle, 0, 4);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -499,7 +519,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(370, 342);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(0, 421);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // lblDetailSellingPrice
@@ -507,9 +527,10 @@
             this.lblDetailSellingPrice.AutoSize = true;
             this.lblDetailSellingPrice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDetailSellingPrice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailSellingPrice.Location = new System.Drawing.Point(188, 272);
+            this.lblDetailSellingPrice.Location = new System.Drawing.Point(4, 336);
+            this.lblDetailSellingPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetailSellingPrice.Name = "lblDetailSellingPrice";
-            this.lblDetailSellingPrice.Size = new System.Drawing.Size(179, 70);
+            this.lblDetailSellingPrice.Size = new System.Drawing.Size(1, 85);
             this.lblDetailSellingPrice.TabIndex = 9;
             this.lblDetailSellingPrice.Text = "(No Product Selected)";
             this.lblDetailSellingPrice.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -519,9 +540,10 @@
             this.lblDetailPurchaseCost.AutoSize = true;
             this.lblDetailPurchaseCost.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDetailPurchaseCost.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailPurchaseCost.Location = new System.Drawing.Point(188, 204);
+            this.lblDetailPurchaseCost.Location = new System.Drawing.Point(4, 252);
+            this.lblDetailPurchaseCost.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetailPurchaseCost.Name = "lblDetailPurchaseCost";
-            this.lblDetailPurchaseCost.Size = new System.Drawing.Size(179, 68);
+            this.lblDetailPurchaseCost.Size = new System.Drawing.Size(1, 84);
             this.lblDetailPurchaseCost.TabIndex = 8;
             this.lblDetailPurchaseCost.Text = "(No Product Selected)";
             this.lblDetailPurchaseCost.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -531,9 +553,10 @@
             this.lblDetailType.AutoSize = true;
             this.lblDetailType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDetailType.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailType.Location = new System.Drawing.Point(188, 136);
+            this.lblDetailType.Location = new System.Drawing.Point(4, 168);
+            this.lblDetailType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetailType.Name = "lblDetailType";
-            this.lblDetailType.Size = new System.Drawing.Size(179, 68);
+            this.lblDetailType.Size = new System.Drawing.Size(1, 84);
             this.lblDetailType.TabIndex = 7;
             this.lblDetailType.Text = "(No Product Selected)";
             this.lblDetailType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -543,9 +566,10 @@
             this.lblDetailPartNumber.AutoSize = true;
             this.lblDetailPartNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDetailPartNumber.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailPartNumber.Location = new System.Drawing.Point(188, 0);
+            this.lblDetailPartNumber.Location = new System.Drawing.Point(4, 0);
+            this.lblDetailPartNumber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetailPartNumber.Name = "lblDetailPartNumber";
-            this.lblDetailPartNumber.Size = new System.Drawing.Size(179, 68);
+            this.lblDetailPartNumber.Size = new System.Drawing.Size(1, 84);
             this.lblDetailPartNumber.TabIndex = 5;
             this.lblDetailPartNumber.Text = "(No Product Selected)";
             this.lblDetailPartNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -555,9 +579,10 @@
             this.lblDetailBrand.AutoSize = true;
             this.lblDetailBrand.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDetailBrand.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailBrand.Location = new System.Drawing.Point(188, 68);
+            this.lblDetailBrand.Location = new System.Drawing.Point(4, 84);
+            this.lblDetailBrand.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetailBrand.Name = "lblDetailBrand";
-            this.lblDetailBrand.Size = new System.Drawing.Size(179, 68);
+            this.lblDetailBrand.Size = new System.Drawing.Size(1, 84);
             this.lblDetailBrand.TabIndex = 6;
             this.lblDetailBrand.Text = "(No Product Selected)";
             this.lblDetailBrand.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -567,9 +592,10 @@
             this.lblDetailPartNumberTitle.AutoSize = true;
             this.lblDetailPartNumberTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDetailPartNumberTitle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailPartNumberTitle.Location = new System.Drawing.Point(3, 0);
+            this.lblDetailPartNumberTitle.Location = new System.Drawing.Point(4, 0);
+            this.lblDetailPartNumberTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetailPartNumberTitle.Name = "lblDetailPartNumberTitle";
-            this.lblDetailPartNumberTitle.Size = new System.Drawing.Size(179, 68);
+            this.lblDetailPartNumberTitle.Size = new System.Drawing.Size(1, 84);
             this.lblDetailPartNumberTitle.TabIndex = 14;
             this.lblDetailPartNumberTitle.Text = "Part Number:";
             this.lblDetailPartNumberTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -579,9 +605,10 @@
             this.lblDetailBrandTitle.AutoSize = true;
             this.lblDetailBrandTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDetailBrandTitle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailBrandTitle.Location = new System.Drawing.Point(3, 68);
+            this.lblDetailBrandTitle.Location = new System.Drawing.Point(4, 84);
+            this.lblDetailBrandTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetailBrandTitle.Name = "lblDetailBrandTitle";
-            this.lblDetailBrandTitle.Size = new System.Drawing.Size(179, 68);
+            this.lblDetailBrandTitle.Size = new System.Drawing.Size(1, 84);
             this.lblDetailBrandTitle.TabIndex = 13;
             this.lblDetailBrandTitle.Text = "Brand:";
             this.lblDetailBrandTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -591,9 +618,10 @@
             this.lblDetailTypeTitle.AutoSize = true;
             this.lblDetailTypeTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDetailTypeTitle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailTypeTitle.Location = new System.Drawing.Point(3, 136);
+            this.lblDetailTypeTitle.Location = new System.Drawing.Point(4, 168);
+            this.lblDetailTypeTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetailTypeTitle.Name = "lblDetailTypeTitle";
-            this.lblDetailTypeTitle.Size = new System.Drawing.Size(179, 68);
+            this.lblDetailTypeTitle.Size = new System.Drawing.Size(1, 84);
             this.lblDetailTypeTitle.TabIndex = 12;
             this.lblDetailTypeTitle.Text = "Type:";
             this.lblDetailTypeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -603,9 +631,10 @@
             this.lblDetailPurchaseCostTitle.AutoSize = true;
             this.lblDetailPurchaseCostTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDetailPurchaseCostTitle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailPurchaseCostTitle.Location = new System.Drawing.Point(3, 204);
+            this.lblDetailPurchaseCostTitle.Location = new System.Drawing.Point(4, 252);
+            this.lblDetailPurchaseCostTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetailPurchaseCostTitle.Name = "lblDetailPurchaseCostTitle";
-            this.lblDetailPurchaseCostTitle.Size = new System.Drawing.Size(179, 68);
+            this.lblDetailPurchaseCostTitle.Size = new System.Drawing.Size(1, 84);
             this.lblDetailPurchaseCostTitle.TabIndex = 10;
             this.lblDetailPurchaseCostTitle.Text = "Purchase Cost:";
             this.lblDetailPurchaseCostTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -615,9 +644,10 @@
             this.lblDetailSellingPriceTitle.AutoSize = true;
             this.lblDetailSellingPriceTitle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblDetailSellingPriceTitle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDetailSellingPriceTitle.Location = new System.Drawing.Point(3, 272);
+            this.lblDetailSellingPriceTitle.Location = new System.Drawing.Point(4, 336);
+            this.lblDetailSellingPriceTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDetailSellingPriceTitle.Name = "lblDetailSellingPriceTitle";
-            this.lblDetailSellingPriceTitle.Size = new System.Drawing.Size(179, 70);
+            this.lblDetailSellingPriceTitle.Size = new System.Drawing.Size(1, 85);
             this.lblDetailSellingPriceTitle.TabIndex = 11;
             this.lblDetailSellingPriceTitle.Text = "Selling Price:";
             this.lblDetailSellingPriceTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -627,8 +657,9 @@
             this.pnlChartData.Controls.Add(this.dgvChartData);
             this.pnlChartData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlChartData.Location = new System.Drawing.Point(0, 0);
+            this.pnlChartData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlChartData.Name = "pnlChartData";
-            this.pnlChartData.Size = new System.Drawing.Size(370, 342);
+            this.pnlChartData.Size = new System.Drawing.Size(0, 421);
             this.pnlChartData.TabIndex = 0;
             // 
             // dgvChartData
@@ -638,11 +669,13 @@
             this.dgvChartData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChartData.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvChartData.Location = new System.Drawing.Point(0, 0);
+            this.dgvChartData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvChartData.Name = "dgvChartData";
             this.dgvChartData.ReadOnly = true;
             this.dgvChartData.RowHeadersVisible = false;
+            this.dgvChartData.RowHeadersWidth = 51;
             this.dgvChartData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvChartData.Size = new System.Drawing.Size(370, 342);
+            this.dgvChartData.Size = new System.Drawing.Size(0, 421);
             this.dgvChartData.TabIndex = 0;
             // 
             // tabAnalytics
@@ -655,20 +688,22 @@
             this.tabAnalytics.Controls.Add(this.tabSalesTrend);
             this.tabAnalytics.Controls.Add(this.tabSalesBreakdown);
             this.tabAnalytics.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabAnalytics.Location = new System.Drawing.Point(6, 619);
+            this.tabAnalytics.Location = new System.Drawing.Point(8, 422);
+            this.tabAnalytics.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabAnalytics.Name = "tabAnalytics";
             this.tabAnalytics.SelectedIndex = 0;
-            this.tabAnalytics.Size = new System.Drawing.Size(660, 342);
+            this.tabAnalytics.Size = new System.Drawing.Size(880, 421);
             this.tabAnalytics.TabIndex = 10;
             this.tabAnalytics.SelectedIndexChanged += new System.EventHandler(this.tabAnalytics_SelectedIndexChanged);
             // 
             // tabTodaysActivity
             // 
             this.tabTodaysActivity.Controls.Add(this.tableLayoutPanel1);
-            this.tabTodaysActivity.Location = new System.Drawing.Point(4, 28);
+            this.tabTodaysActivity.Location = new System.Drawing.Point(4, 32);
+            this.tabTodaysActivity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabTodaysActivity.Name = "tabTodaysActivity";
-            this.tabTodaysActivity.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTodaysActivity.Size = new System.Drawing.Size(652, 310);
+            this.tabTodaysActivity.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabTodaysActivity.Size = new System.Drawing.Size(872, 385);
             this.tabTodaysActivity.TabIndex = 0;
             this.tabTodaysActivity.Text = "Today\'s Activity";
             this.tabTodaysActivity.UseVisualStyleBackColor = true;
@@ -679,19 +714,20 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 304F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 304F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 304F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(646, 304);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 377F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 377F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 377F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(864, 377);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -701,9 +737,10 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(209, 298);
+            this.panel1.Size = new System.Drawing.Size(280, 369);
             this.panel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -716,21 +753,23 @@
             this.tableLayoutPanel3.Controls.Add(this.lblSupplyTransTitle, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.lblSupplyTransactionsToday, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 31);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 40);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(207, 265);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(278, 327);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
             // lblItemsSuppliedTitle
             // 
             this.lblItemsSuppliedTitle.AutoSize = true;
-            this.lblItemsSuppliedTitle.Location = new System.Drawing.Point(3, 0);
+            this.lblItemsSuppliedTitle.Location = new System.Drawing.Point(4, 0);
+            this.lblItemsSuppliedTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblItemsSuppliedTitle.Name = "lblItemsSuppliedTitle";
-            this.lblItemsSuppliedTitle.Size = new System.Drawing.Size(64, 32);
+            this.lblItemsSuppliedTitle.Size = new System.Drawing.Size(124, 20);
             this.lblItemsSuppliedTitle.TabIndex = 0;
             this.lblItemsSuppliedTitle.Text = "Items Supplied:";
             this.lblItemsSuppliedTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -739,18 +778,20 @@
             // 
             this.lblItemsSuppliedToday.AutoSize = true;
             this.lblItemsSuppliedToday.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemsSuppliedToday.Location = new System.Drawing.Point(106, 0);
+            this.lblItemsSuppliedToday.Location = new System.Drawing.Point(143, 0);
+            this.lblItemsSuppliedToday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblItemsSuppliedToday.Name = "lblItemsSuppliedToday";
-            this.lblItemsSuppliedToday.Size = new System.Drawing.Size(19, 21);
+            this.lblItemsSuppliedToday.Size = new System.Drawing.Size(24, 28);
             this.lblItemsSuppliedToday.TabIndex = 1;
             this.lblItemsSuppliedToday.Text = "0";
             // 
             // lblSupplyTransTitle
             // 
             this.lblSupplyTransTitle.AutoSize = true;
-            this.lblSupplyTransTitle.Location = new System.Drawing.Point(3, 132);
+            this.lblSupplyTransTitle.Location = new System.Drawing.Point(4, 163);
+            this.lblSupplyTransTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSupplyTransTitle.Name = "lblSupplyTransTitle";
-            this.lblSupplyTransTitle.Size = new System.Drawing.Size(88, 16);
+            this.lblSupplyTransTitle.Size = new System.Drawing.Size(111, 20);
             this.lblSupplyTransTitle.TabIndex = 2;
             this.lblSupplyTransTitle.Text = "Transactions:";
             this.lblSupplyTransTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -759,9 +800,10 @@
             // 
             this.lblSupplyTransactionsToday.AutoSize = true;
             this.lblSupplyTransactionsToday.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSupplyTransactionsToday.Location = new System.Drawing.Point(106, 132);
+            this.lblSupplyTransactionsToday.Location = new System.Drawing.Point(143, 163);
+            this.lblSupplyTransactionsToday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSupplyTransactionsToday.Name = "lblSupplyTransactionsToday";
-            this.lblSupplyTransactionsToday.Size = new System.Drawing.Size(19, 21);
+            this.lblSupplyTransactionsToday.Size = new System.Drawing.Size(24, 28);
             this.lblSupplyTransactionsToday.TabIndex = 3;
             this.lblSupplyTransactionsToday.Text = "0";
             // 
@@ -769,9 +811,10 @@
             // 
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Location = new System.Drawing.Point(0, 21);
+            this.label2.Location = new System.Drawing.Point(0, 28);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(207, 10);
+            this.label2.Size = new System.Drawing.Size(278, 12);
             this.label2.TabIndex = 1;
             // 
             // label1
@@ -780,8 +823,9 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 21);
+            this.label1.Size = new System.Drawing.Size(156, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Supply Activity";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -793,9 +837,10 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(218, 3);
+            this.panel2.Location = new System.Drawing.Point(292, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(209, 298);
+            this.panel2.Size = new System.Drawing.Size(280, 369);
             this.panel2.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -808,21 +853,23 @@
             this.tableLayoutPanel4.Controls.Add(this.lblDeliveryTransTitle, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.lblDeliveryTransactionsToday, 1, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 31);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 40);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(207, 265);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(278, 327);
             this.tableLayoutPanel4.TabIndex = 3;
             // 
             // lblItemsDeliveredTitle
             // 
             this.lblItemsDeliveredTitle.AutoSize = true;
-            this.lblItemsDeliveredTitle.Location = new System.Drawing.Point(3, 0);
+            this.lblItemsDeliveredTitle.Location = new System.Drawing.Point(4, 0);
+            this.lblItemsDeliveredTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblItemsDeliveredTitle.Name = "lblItemsDeliveredTitle";
-            this.lblItemsDeliveredTitle.Size = new System.Drawing.Size(69, 32);
+            this.lblItemsDeliveredTitle.Size = new System.Drawing.Size(131, 20);
             this.lblItemsDeliveredTitle.TabIndex = 0;
             this.lblItemsDeliveredTitle.Text = "Items Delivered:";
             this.lblItemsDeliveredTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -831,18 +878,20 @@
             // 
             this.lblItemsDeliveredToday.AutoSize = true;
             this.lblItemsDeliveredToday.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemsDeliveredToday.Location = new System.Drawing.Point(106, 0);
+            this.lblItemsDeliveredToday.Location = new System.Drawing.Point(143, 0);
+            this.lblItemsDeliveredToday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblItemsDeliveredToday.Name = "lblItemsDeliveredToday";
-            this.lblItemsDeliveredToday.Size = new System.Drawing.Size(19, 21);
+            this.lblItemsDeliveredToday.Size = new System.Drawing.Size(24, 28);
             this.lblItemsDeliveredToday.TabIndex = 1;
             this.lblItemsDeliveredToday.Text = "0";
             // 
             // lblDeliveryTransTitle
             // 
             this.lblDeliveryTransTitle.AutoSize = true;
-            this.lblDeliveryTransTitle.Location = new System.Drawing.Point(3, 132);
+            this.lblDeliveryTransTitle.Location = new System.Drawing.Point(4, 163);
+            this.lblDeliveryTransTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDeliveryTransTitle.Name = "lblDeliveryTransTitle";
-            this.lblDeliveryTransTitle.Size = new System.Drawing.Size(88, 16);
+            this.lblDeliveryTransTitle.Size = new System.Drawing.Size(111, 20);
             this.lblDeliveryTransTitle.TabIndex = 2;
             this.lblDeliveryTransTitle.Text = "Transactions:";
             this.lblDeliveryTransTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -851,9 +900,10 @@
             // 
             this.lblDeliveryTransactionsToday.AutoSize = true;
             this.lblDeliveryTransactionsToday.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeliveryTransactionsToday.Location = new System.Drawing.Point(106, 132);
+            this.lblDeliveryTransactionsToday.Location = new System.Drawing.Point(143, 163);
+            this.lblDeliveryTransactionsToday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDeliveryTransactionsToday.Name = "lblDeliveryTransactionsToday";
-            this.lblDeliveryTransactionsToday.Size = new System.Drawing.Size(19, 21);
+            this.lblDeliveryTransactionsToday.Size = new System.Drawing.Size(24, 28);
             this.lblDeliveryTransactionsToday.TabIndex = 3;
             this.lblDeliveryTransactionsToday.Text = "0";
             // 
@@ -861,9 +911,10 @@
             // 
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Location = new System.Drawing.Point(0, 21);
+            this.label4.Location = new System.Drawing.Point(0, 28);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(207, 10);
+            this.label4.Size = new System.Drawing.Size(278, 12);
             this.label4.TabIndex = 2;
             // 
             // label3
@@ -872,8 +923,9 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(0, 0);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 21);
+            this.label3.Size = new System.Drawing.Size(172, 28);
             this.label3.TabIndex = 0;
             this.label3.Text = "Delivery Activity";
             // 
@@ -884,9 +936,10 @@
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(433, 3);
+            this.panel3.Location = new System.Drawing.Point(580, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(210, 298);
+            this.panel3.Size = new System.Drawing.Size(280, 369);
             this.panel3.TabIndex = 2;
             // 
             // tableLayoutPanel5
@@ -901,21 +954,23 @@
             this.tableLayoutPanel5.Controls.Add(this.lblNetStockTitle, 0, 2);
             this.tableLayoutPanel5.Controls.Add(this.lblNetStockChange, 1, 2);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 31);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 40);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(208, 265);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(278, 327);
             this.tableLayoutPanel5.TabIndex = 4;
             // 
             // lblCostTitle
             // 
             this.lblCostTitle.AutoSize = true;
-            this.lblCostTitle.Location = new System.Drawing.Point(3, 0);
+            this.lblCostTitle.Location = new System.Drawing.Point(4, 0);
+            this.lblCostTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCostTitle.Name = "lblCostTitle";
-            this.lblCostTitle.Size = new System.Drawing.Size(63, 32);
+            this.lblCostTitle.Size = new System.Drawing.Size(78, 40);
             this.lblCostTitle.TabIndex = 0;
             this.lblCostTitle.Text = "Cost of Supplies:";
             this.lblCostTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -924,18 +979,20 @@
             // 
             this.lblCostSuppliedToday.AutoSize = true;
             this.lblCostSuppliedToday.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCostSuppliedToday.Location = new System.Drawing.Point(107, 0);
+            this.lblCostSuppliedToday.Location = new System.Drawing.Point(143, 0);
+            this.lblCostSuppliedToday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCostSuppliedToday.Name = "lblCostSuppliedToday";
-            this.lblCostSuppliedToday.Size = new System.Drawing.Size(50, 21);
+            this.lblCostSuppliedToday.Size = new System.Drawing.Size(65, 28);
             this.lblCostSuppliedToday.TabIndex = 1;
             this.lblCostSuppliedToday.Text = "$0.00";
             // 
             // lblRevenueTitle
             // 
             this.lblRevenueTitle.AutoSize = true;
-            this.lblRevenueTitle.Location = new System.Drawing.Point(3, 88);
+            this.lblRevenueTitle.Location = new System.Drawing.Point(4, 109);
+            this.lblRevenueTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRevenueTitle.Name = "lblRevenueTitle";
-            this.lblRevenueTitle.Size = new System.Drawing.Size(65, 32);
+            this.lblRevenueTitle.Size = new System.Drawing.Size(130, 20);
             this.lblRevenueTitle.TabIndex = 2;
             this.lblRevenueTitle.Text = "Gross Revenue:";
             this.lblRevenueTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -944,18 +1001,20 @@
             // 
             this.lblRevenueToday.AutoSize = true;
             this.lblRevenueToday.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRevenueToday.Location = new System.Drawing.Point(107, 88);
+            this.lblRevenueToday.Location = new System.Drawing.Point(143, 109);
+            this.lblRevenueToday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRevenueToday.Name = "lblRevenueToday";
-            this.lblRevenueToday.Size = new System.Drawing.Size(50, 21);
+            this.lblRevenueToday.Size = new System.Drawing.Size(65, 28);
             this.lblRevenueToday.TabIndex = 3;
             this.lblRevenueToday.Text = "$0.00";
             // 
             // lblNetStockTitle
             // 
             this.lblNetStockTitle.AutoSize = true;
-            this.lblNetStockTitle.Location = new System.Drawing.Point(3, 176);
+            this.lblNetStockTitle.Location = new System.Drawing.Point(4, 218);
+            this.lblNetStockTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNetStockTitle.Name = "lblNetStockTitle";
-            this.lblNetStockTitle.Size = new System.Drawing.Size(68, 32);
+            this.lblNetStockTitle.Size = new System.Drawing.Size(87, 40);
             this.lblNetStockTitle.TabIndex = 4;
             this.lblNetStockTitle.Text = "Net Stock Change:";
             this.lblNetStockTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -964,9 +1023,10 @@
             // 
             this.lblNetStockChange.AutoSize = true;
             this.lblNetStockChange.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNetStockChange.Location = new System.Drawing.Point(107, 176);
+            this.lblNetStockChange.Location = new System.Drawing.Point(143, 218);
+            this.lblNetStockChange.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNetStockChange.Name = "lblNetStockChange";
-            this.lblNetStockChange.Size = new System.Drawing.Size(19, 21);
+            this.lblNetStockChange.Size = new System.Drawing.Size(24, 28);
             this.lblNetStockChange.TabIndex = 5;
             this.lblNetStockChange.Text = "0";
             // 
@@ -974,9 +1034,10 @@
             // 
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.Location = new System.Drawing.Point(0, 21);
+            this.label6.Location = new System.Drawing.Point(0, 28);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(208, 10);
+            this.label6.Size = new System.Drawing.Size(278, 12);
             this.label6.TabIndex = 3;
             // 
             // label5
@@ -985,8 +1046,9 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Top;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(157, 21);
+            this.label5.Size = new System.Drawing.Size(192, 28);
             this.label5.TabIndex = 1;
             this.label5.Text = "Financial Summary";
             // 
@@ -998,9 +1060,10 @@
             this.tabProductDetails.Controls.Add(this.lblSelectedProductStock);
             this.tabProductDetails.Controls.Add(this.lblCurrentStockText);
             this.tabProductDetails.Controls.Add(this.lblSelectedProductName);
-            this.tabProductDetails.Location = new System.Drawing.Point(4, 28);
+            this.tabProductDetails.Location = new System.Drawing.Point(4, 32);
+            this.tabProductDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabProductDetails.Name = "tabProductDetails";
-            this.tabProductDetails.Size = new System.Drawing.Size(652, 310);
+            this.tabProductDetails.Size = new System.Drawing.Size(872, 385);
             this.tabProductDetails.TabIndex = 1;
             this.tabProductDetails.Text = "Selected Product Details";
             this.tabProductDetails.UseVisualStyleBackColor = true;
@@ -1012,10 +1075,12 @@
             this.dgvProductHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProductHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductHistory.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvProductHistory.Location = new System.Drawing.Point(0, 120);
+            this.dgvProductHistory.Location = new System.Drawing.Point(0, 151);
+            this.dgvProductHistory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvProductHistory.Name = "dgvProductHistory";
             this.dgvProductHistory.ReadOnly = true;
-            this.dgvProductHistory.Size = new System.Drawing.Size(652, 190);
+            this.dgvProductHistory.RowHeadersWidth = 51;
+            this.dgvProductHistory.Size = new System.Drawing.Size(872, 234);
             this.dgvProductHistory.TabIndex = 6;
             this.dgvProductHistory.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProductHistory_CellFormatting);
             // 
@@ -1023,9 +1088,10 @@
             // 
             this.lblSelectedProductValue.AutoSize = true;
             this.lblSelectedProductValue.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectedProductValue.Location = new System.Drawing.Point(155, 75);
+            this.lblSelectedProductValue.Location = new System.Drawing.Point(207, 92);
+            this.lblSelectedProductValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSelectedProductValue.Name = "lblSelectedProductValue";
-            this.lblSelectedProductValue.Size = new System.Drawing.Size(39, 20);
+            this.lblSelectedProductValue.Size = new System.Drawing.Size(48, 25);
             this.lblSelectedProductValue.TabIndex = 5;
             this.lblSelectedProductValue.Text = "N/A";
             // 
@@ -1033,9 +1099,10 @@
             // 
             this.lblTotalValueonHandText.AutoSize = true;
             this.lblTotalValueonHandText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalValueonHandText.Location = new System.Drawing.Point(3, 75);
+            this.lblTotalValueonHandText.Location = new System.Drawing.Point(4, 92);
+            this.lblTotalValueonHandText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalValueonHandText.Name = "lblTotalValueonHandText";
-            this.lblTotalValueonHandText.Size = new System.Drawing.Size(146, 20);
+            this.lblTotalValueonHandText.Size = new System.Drawing.Size(185, 25);
             this.lblTotalValueonHandText.TabIndex = 4;
             this.lblTotalValueonHandText.Text = "Total Value on Hand:";
             // 
@@ -1043,9 +1110,10 @@
             // 
             this.lblSelectedProductStock.AutoSize = true;
             this.lblSelectedProductStock.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectedProductStock.Location = new System.Drawing.Point(109, 41);
+            this.lblSelectedProductStock.Location = new System.Drawing.Point(145, 50);
+            this.lblSelectedProductStock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSelectedProductStock.Name = "lblSelectedProductStock";
-            this.lblSelectedProductStock.Size = new System.Drawing.Size(39, 20);
+            this.lblSelectedProductStock.Size = new System.Drawing.Size(48, 25);
             this.lblSelectedProductStock.TabIndex = 3;
             this.lblSelectedProductStock.Text = "N/A";
             // 
@@ -1053,9 +1121,10 @@
             // 
             this.lblCurrentStockText.AutoSize = true;
             this.lblCurrentStockText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentStockText.Location = new System.Drawing.Point(3, 41);
+            this.lblCurrentStockText.Location = new System.Drawing.Point(4, 50);
+            this.lblCurrentStockText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCurrentStockText.Name = "lblCurrentStockText";
-            this.lblCurrentStockText.Size = new System.Drawing.Size(100, 20);
+            this.lblCurrentStockText.Size = new System.Drawing.Size(129, 25);
             this.lblCurrentStockText.TabIndex = 2;
             this.lblCurrentStockText.Text = "Current Stock:";
             // 
@@ -1063,18 +1132,20 @@
             // 
             this.lblSelectedProductName.AutoSize = true;
             this.lblSelectedProductName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSelectedProductName.Location = new System.Drawing.Point(3, 10);
+            this.lblSelectedProductName.Location = new System.Drawing.Point(4, 12);
+            this.lblSelectedProductName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSelectedProductName.Name = "lblSelectedProductName";
-            this.lblSelectedProductName.Size = new System.Drawing.Size(163, 20);
+            this.lblSelectedProductName.Size = new System.Drawing.Size(209, 25);
             this.lblSelectedProductName.TabIndex = 1;
             this.lblSelectedProductName.Text = "(No Product Selected)";
             // 
             // tabMonthlyPerformance
             // 
             this.tabMonthlyPerformance.Controls.Add(this.chartPerformance);
-            this.tabMonthlyPerformance.Location = new System.Drawing.Point(4, 28);
+            this.tabMonthlyPerformance.Location = new System.Drawing.Point(4, 32);
+            this.tabMonthlyPerformance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabMonthlyPerformance.Name = "tabMonthlyPerformance";
-            this.tabMonthlyPerformance.Size = new System.Drawing.Size(652, 310);
+            this.tabMonthlyPerformance.Size = new System.Drawing.Size(872, 385);
             this.tabMonthlyPerformance.TabIndex = 2;
             this.tabMonthlyPerformance.Text = "Monthly Performance";
             this.tabMonthlyPerformance.UseVisualStyleBackColor = true;
@@ -1088,21 +1159,23 @@
             legend1.Name = "Legend1";
             this.chartPerformance.Legends.Add(legend1);
             this.chartPerformance.Location = new System.Drawing.Point(0, 0);
+            this.chartPerformance.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chartPerformance.Name = "chartPerformance";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartPerformance.Series.Add(series1);
-            this.chartPerformance.Size = new System.Drawing.Size(652, 310);
+            this.chartPerformance.Size = new System.Drawing.Size(872, 385);
             this.chartPerformance.TabIndex = 0;
             this.chartPerformance.Text = "chart1";
             // 
             // tabSalesTrend
             // 
             this.tabSalesTrend.Controls.Add(this.chartSalesTrend);
-            this.tabSalesTrend.Location = new System.Drawing.Point(4, 28);
+            this.tabSalesTrend.Location = new System.Drawing.Point(4, 32);
+            this.tabSalesTrend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabSalesTrend.Name = "tabSalesTrend";
-            this.tabSalesTrend.Size = new System.Drawing.Size(652, 310);
+            this.tabSalesTrend.Size = new System.Drawing.Size(872, 385);
             this.tabSalesTrend.TabIndex = 3;
             this.tabSalesTrend.Text = "Sales Trend";
             this.tabSalesTrend.UseVisualStyleBackColor = true;
@@ -1115,12 +1188,13 @@
             legend2.Name = "Legend1";
             this.chartSalesTrend.Legends.Add(legend2);
             this.chartSalesTrend.Location = new System.Drawing.Point(0, 0);
+            this.chartSalesTrend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chartSalesTrend.Name = "chartSalesTrend";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chartSalesTrend.Series.Add(series2);
-            this.chartSalesTrend.Size = new System.Drawing.Size(652, 310);
+            this.chartSalesTrend.Size = new System.Drawing.Size(872, 385);
             this.chartSalesTrend.TabIndex = 0;
             this.chartSalesTrend.Text = "chart1";
             // 
@@ -1128,9 +1202,10 @@
             // 
             this.tabSalesBreakdown.Controls.Add(this.BreakDownByPanel);
             this.tabSalesBreakdown.Controls.Add(this.chartSalesBreakdown);
-            this.tabSalesBreakdown.Location = new System.Drawing.Point(4, 28);
+            this.tabSalesBreakdown.Location = new System.Drawing.Point(4, 32);
+            this.tabSalesBreakdown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabSalesBreakdown.Name = "tabSalesBreakdown";
-            this.tabSalesBreakdown.Size = new System.Drawing.Size(652, 310);
+            this.tabSalesBreakdown.Size = new System.Drawing.Size(872, 385);
             this.tabSalesBreakdown.TabIndex = 4;
             this.tabSalesBreakdown.Text = "Sales Breakdown";
             this.tabSalesBreakdown.UseVisualStyleBackColor = true;
@@ -1142,8 +1217,9 @@
             this.BreakDownByPanel.Controls.Add(this.cmbBreakdownType);
             this.BreakDownByPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.BreakDownByPanel.Location = new System.Drawing.Point(0, 0);
+            this.BreakDownByPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BreakDownByPanel.Name = "BreakDownByPanel";
-            this.BreakDownByPanel.Size = new System.Drawing.Size(652, 30);
+            this.BreakDownByPanel.Size = new System.Drawing.Size(872, 37);
             this.BreakDownByPanel.TabIndex = 3;
             // 
             // lblBreakdownByText
@@ -1151,9 +1227,10 @@
             this.lblBreakdownByText.AutoSize = true;
             this.lblBreakdownByText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBreakdownByText.ForeColor = System.Drawing.Color.White;
-            this.lblBreakdownByText.Location = new System.Drawing.Point(3, 6);
+            this.lblBreakdownByText.Location = new System.Drawing.Point(4, 7);
+            this.lblBreakdownByText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBreakdownByText.Name = "lblBreakdownByText";
-            this.lblBreakdownByText.Size = new System.Drawing.Size(106, 20);
+            this.lblBreakdownByText.Size = new System.Drawing.Size(135, 25);
             this.lblBreakdownByText.TabIndex = 0;
             this.lblBreakdownByText.Text = "Breakdown By:";
             // 
@@ -1162,9 +1239,10 @@
             this.cmbBreakdownType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBreakdownType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBreakdownType.FormattingEnabled = true;
-            this.cmbBreakdownType.Location = new System.Drawing.Point(115, 3);
+            this.cmbBreakdownType.Location = new System.Drawing.Point(153, 4);
+            this.cmbBreakdownType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbBreakdownType.Name = "cmbBreakdownType";
-            this.cmbBreakdownType.Size = new System.Drawing.Size(121, 25);
+            this.cmbBreakdownType.Size = new System.Drawing.Size(160, 29);
             this.cmbBreakdownType.TabIndex = 1;
             // 
             // chartSalesBreakdown
@@ -1175,12 +1253,13 @@
             legend3.Name = "Legend1";
             this.chartSalesBreakdown.Legends.Add(legend3);
             this.chartSalesBreakdown.Location = new System.Drawing.Point(0, 0);
+            this.chartSalesBreakdown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.chartSalesBreakdown.Name = "chartSalesBreakdown";
             series3.ChartArea = "ChartArea1";
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.chartSalesBreakdown.Series.Add(series3);
-            this.chartSalesBreakdown.Size = new System.Drawing.Size(652, 310);
+            this.chartSalesBreakdown.Size = new System.Drawing.Size(872, 385);
             this.chartSalesBreakdown.TabIndex = 2;
             this.chartSalesBreakdown.Text = "chart1";
             // 
@@ -1189,17 +1268,19 @@
             this.pnlQuickActions.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlQuickActions.Controls.Add(this.btnQuickDelivery);
             this.pnlQuickActions.Controls.Add(this.btnQuickSupply);
-            this.pnlQuickActions.Location = new System.Drawing.Point(1048, 724);
+            this.pnlQuickActions.Location = new System.Drawing.Point(896, 551);
+            this.pnlQuickActions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlQuickActions.Name = "pnlQuickActions";
-            this.pnlQuickActions.Size = new System.Drawing.Size(396, 237);
+            this.pnlQuickActions.Size = new System.Drawing.Size(400, 292);
             this.pnlQuickActions.TabIndex = 11;
             // 
             // btnQuickDelivery
             // 
             this.btnQuickDelivery.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuickDelivery.Location = new System.Drawing.Point(123, 93);
+            this.btnQuickDelivery.Location = new System.Drawing.Point(81, 116);
+            this.btnQuickDelivery.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnQuickDelivery.Name = "btnQuickDelivery";
-            this.btnQuickDelivery.Size = new System.Drawing.Size(190, 45);
+            this.btnQuickDelivery.Size = new System.Drawing.Size(253, 55);
             this.btnQuickDelivery.TabIndex = 1;
             this.btnQuickDelivery.Text = "New Delivery";
             this.btnQuickDelivery.UseVisualStyleBackColor = true;
@@ -1208,28 +1289,24 @@
             // btnQuickSupply
             // 
             this.btnQuickSupply.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuickSupply.Location = new System.Drawing.Point(123, 38);
+            this.btnQuickSupply.Location = new System.Drawing.Point(81, 49);
+            this.btnQuickSupply.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnQuickSupply.Name = "btnQuickSupply";
-            this.btnQuickSupply.Size = new System.Drawing.Size(190, 43);
+            this.btnQuickSupply.Size = new System.Drawing.Size(253, 53);
             this.btnQuickSupply.TabIndex = 0;
             this.btnQuickSupply.Text = "New Supply";
             this.btnQuickSupply.UseVisualStyleBackColor = true;
             this.btnQuickSupply.Click += new System.EventHandler(this.btnQuickSupply_Click);
             // 
-            // ucTransactionHistory1
-            // 
-            this.ucTransactionHistory1.Location = new System.Drawing.Point(0, 175);
-            this.ucTransactionHistory1.Name = "ucTransactionHistory1";
-            this.ucTransactionHistory1.Size = new System.Drawing.Size(1444, 437);
-            this.ucTransactionHistory1.TabIndex = 0;
-            // 
             // dgvRecentTransactions
             // 
             this.dgvRecentTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRecentTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvRecentTransactions.Location = new System.Drawing.Point(0, 175);
+            this.dgvRecentTransactions.Location = new System.Drawing.Point(0, 215);
+            this.dgvRecentTransactions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvRecentTransactions.Name = "dgvRecentTransactions";
-            this.dgvRecentTransactions.Size = new System.Drawing.Size(1447, 789);
+            this.dgvRecentTransactions.RowHeadersWidth = 51;
+            this.dgvRecentTransactions.Size = new System.Drawing.Size(1300, 631);
             this.dgvRecentTransactions.TabIndex = 7;
             this.dgvRecentTransactions.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DgvRecentTransactions_DataError);
             // 
@@ -1238,9 +1315,10 @@
             this.lblHistoryTitle.AutoSize = true;
             this.lblHistoryTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblHistoryTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHistoryTitle.Location = new System.Drawing.Point(0, 150);
+            this.lblHistoryTitle.Location = new System.Drawing.Point(0, 184);
+            this.lblHistoryTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHistoryTitle.Name = "lblHistoryTitle";
-            this.lblHistoryTitle.Size = new System.Drawing.Size(210, 25);
+            this.lblHistoryTitle.Size = new System.Drawing.Size(265, 31);
             this.lblHistoryTitle.TabIndex = 6;
             this.lblHistoryTitle.Text = "Recent Transactions";
             // 
@@ -1254,9 +1332,10 @@
             this.pnlKpiContainer.Controls.Add(this.pnlKpiInventoryValue);
             this.pnlKpiContainer.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlKpiContainer.Location = new System.Drawing.Point(0, 0);
+            this.pnlKpiContainer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlKpiContainer.Name = "pnlKpiContainer";
-            this.pnlKpiContainer.Padding = new System.Windows.Forms.Padding(160, 10, 10, 10);
-            this.pnlKpiContainer.Size = new System.Drawing.Size(1447, 150);
+            this.pnlKpiContainer.Padding = new System.Windows.Forms.Padding(213, 12, 13, 12);
+            this.pnlKpiContainer.Size = new System.Drawing.Size(1300, 184);
             this.pnlKpiContainer.TabIndex = 5;
             // 
             // pnlKpiTotalProducts
@@ -1264,10 +1343,10 @@
             this.pnlKpiTotalProducts.BackColor = System.Drawing.SystemColors.HotTrack;
             this.pnlKpiTotalProducts.Controls.Add(this.lblTotalProductsTitle);
             this.pnlKpiTotalProducts.Controls.Add(this.lblTotalProductsValue);
-            this.pnlKpiTotalProducts.Location = new System.Drawing.Point(180, 13);
-            this.pnlKpiTotalProducts.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.pnlKpiTotalProducts.Location = new System.Drawing.Point(240, 16);
+            this.pnlKpiTotalProducts.Margin = new System.Windows.Forms.Padding(27, 4, 4, 4);
             this.pnlKpiTotalProducts.Name = "pnlKpiTotalProducts";
-            this.pnlKpiTotalProducts.Size = new System.Drawing.Size(200, 100);
+            this.pnlKpiTotalProducts.Size = new System.Drawing.Size(267, 123);
             this.pnlKpiTotalProducts.TabIndex = 0;
             this.pnlKpiTotalProducts.Click += new System.EventHandler(this.KpiPanel_Click);
             // 
@@ -1276,9 +1355,10 @@
             this.lblTotalProductsTitle.AutoSize = true;
             this.lblTotalProductsTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalProductsTitle.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblTotalProductsTitle.Location = new System.Drawing.Point(34, 17);
+            this.lblTotalProductsTitle.Location = new System.Drawing.Point(45, 21);
+            this.lblTotalProductsTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalProductsTitle.Name = "lblTotalProductsTitle";
-            this.lblTotalProductsTitle.Size = new System.Drawing.Size(131, 25);
+            this.lblTotalProductsTitle.Size = new System.Drawing.Size(164, 32);
             this.lblTotalProductsTitle.TabIndex = 1;
             this.lblTotalProductsTitle.Text = "Total Products";
             this.lblTotalProductsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1288,9 +1368,10 @@
             this.lblTotalProductsValue.AutoSize = true;
             this.lblTotalProductsValue.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalProductsValue.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblTotalProductsValue.Location = new System.Drawing.Point(80, 42);
+            this.lblTotalProductsValue.Location = new System.Drawing.Point(107, 52);
+            this.lblTotalProductsValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalProductsValue.Name = "lblTotalProductsValue";
-            this.lblTotalProductsValue.Size = new System.Drawing.Size(38, 45);
+            this.lblTotalProductsValue.Size = new System.Drawing.Size(46, 54);
             this.lblTotalProductsValue.TabIndex = 0;
             this.lblTotalProductsValue.Text = "0";
             this.lblTotalProductsValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1300,10 +1381,10 @@
             this.pnlKpiOutOfStock.BackColor = System.Drawing.Color.SlateGray;
             this.pnlKpiOutOfStock.Controls.Add(this.lblOutOfStockTitle);
             this.pnlKpiOutOfStock.Controls.Add(this.lblOutOfStockValue);
-            this.pnlKpiOutOfStock.Location = new System.Drawing.Point(403, 13);
-            this.pnlKpiOutOfStock.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.pnlKpiOutOfStock.Location = new System.Drawing.Point(538, 16);
+            this.pnlKpiOutOfStock.Margin = new System.Windows.Forms.Padding(27, 4, 4, 4);
             this.pnlKpiOutOfStock.Name = "pnlKpiOutOfStock";
-            this.pnlKpiOutOfStock.Size = new System.Drawing.Size(200, 100);
+            this.pnlKpiOutOfStock.Size = new System.Drawing.Size(267, 123);
             this.pnlKpiOutOfStock.TabIndex = 2;
             this.pnlKpiOutOfStock.Click += new System.EventHandler(this.KpiPanel_Click);
             // 
@@ -1312,9 +1393,10 @@
             this.lblOutOfStockTitle.AutoSize = true;
             this.lblOutOfStockTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOutOfStockTitle.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblOutOfStockTitle.Location = new System.Drawing.Point(46, 17);
+            this.lblOutOfStockTitle.Location = new System.Drawing.Point(61, 21);
+            this.lblOutOfStockTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOutOfStockTitle.Name = "lblOutOfStockTitle";
-            this.lblOutOfStockTitle.Size = new System.Drawing.Size(122, 25);
+            this.lblOutOfStockTitle.Size = new System.Drawing.Size(157, 32);
             this.lblOutOfStockTitle.TabIndex = 1;
             this.lblOutOfStockTitle.Text = "Out of Stocks";
             this.lblOutOfStockTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1324,9 +1406,10 @@
             this.lblOutOfStockValue.AutoSize = true;
             this.lblOutOfStockValue.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOutOfStockValue.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblOutOfStockValue.Location = new System.Drawing.Point(80, 42);
+            this.lblOutOfStockValue.Location = new System.Drawing.Point(107, 52);
+            this.lblOutOfStockValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblOutOfStockValue.Name = "lblOutOfStockValue";
-            this.lblOutOfStockValue.Size = new System.Drawing.Size(38, 45);
+            this.lblOutOfStockValue.Size = new System.Drawing.Size(46, 54);
             this.lblOutOfStockValue.TabIndex = 0;
             this.lblOutOfStockValue.Text = "0";
             this.lblOutOfStockValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1336,10 +1419,10 @@
             this.pnlKpiLowStock.BackColor = System.Drawing.Color.IndianRed;
             this.pnlKpiLowStock.Controls.Add(this.lblLowStockTitle);
             this.pnlKpiLowStock.Controls.Add(this.lblLowStockValue);
-            this.pnlKpiLowStock.Location = new System.Drawing.Point(626, 13);
-            this.pnlKpiLowStock.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.pnlKpiLowStock.Location = new System.Drawing.Point(836, 16);
+            this.pnlKpiLowStock.Margin = new System.Windows.Forms.Padding(27, 4, 4, 4);
             this.pnlKpiLowStock.Name = "pnlKpiLowStock";
-            this.pnlKpiLowStock.Size = new System.Drawing.Size(200, 100);
+            this.pnlKpiLowStock.Size = new System.Drawing.Size(267, 123);
             this.pnlKpiLowStock.TabIndex = 1;
             this.pnlKpiLowStock.Click += new System.EventHandler(this.KpiPanel_Click);
             // 
@@ -1348,9 +1431,10 @@
             this.lblLowStockTitle.AutoSize = true;
             this.lblLowStockTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLowStockTitle.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblLowStockTitle.Location = new System.Drawing.Point(52, 17);
+            this.lblLowStockTitle.Location = new System.Drawing.Point(69, 21);
+            this.lblLowStockTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLowStockTitle.Name = "lblLowStockTitle";
-            this.lblLowStockTitle.Size = new System.Drawing.Size(103, 25);
+            this.lblLowStockTitle.Size = new System.Drawing.Size(130, 32);
             this.lblLowStockTitle.TabIndex = 1;
             this.lblLowStockTitle.Text = "Low Stocks";
             this.lblLowStockTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1360,9 +1444,10 @@
             this.lblLowStockValue.AutoSize = true;
             this.lblLowStockValue.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLowStockValue.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblLowStockValue.Location = new System.Drawing.Point(80, 42);
+            this.lblLowStockValue.Location = new System.Drawing.Point(107, 52);
+            this.lblLowStockValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLowStockValue.Name = "lblLowStockValue";
-            this.lblLowStockValue.Size = new System.Drawing.Size(38, 45);
+            this.lblLowStockValue.Size = new System.Drawing.Size(46, 54);
             this.lblLowStockValue.TabIndex = 0;
             this.lblLowStockValue.Text = "0";
             this.lblLowStockValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1372,10 +1457,10 @@
             this.pnlKpiInventoryValue.BackColor = System.Drawing.Color.SeaGreen;
             this.pnlKpiInventoryValue.Controls.Add(this.blInventoryValueTitle);
             this.pnlKpiInventoryValue.Controls.Add(this.lblInventoryValueValue);
-            this.pnlKpiInventoryValue.Location = new System.Drawing.Point(849, 13);
-            this.pnlKpiInventoryValue.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.pnlKpiInventoryValue.Location = new System.Drawing.Point(240, 147);
+            this.pnlKpiInventoryValue.Margin = new System.Windows.Forms.Padding(27, 4, 4, 4);
             this.pnlKpiInventoryValue.Name = "pnlKpiInventoryValue";
-            this.pnlKpiInventoryValue.Size = new System.Drawing.Size(323, 100);
+            this.pnlKpiInventoryValue.Size = new System.Drawing.Size(431, 123);
             this.pnlKpiInventoryValue.TabIndex = 3;
             // 
             // blInventoryValueTitle
@@ -1383,9 +1468,10 @@
             this.blInventoryValueTitle.AutoSize = true;
             this.blInventoryValueTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.blInventoryValueTitle.ForeColor = System.Drawing.SystemColors.Window;
-            this.blInventoryValueTitle.Location = new System.Drawing.Point(83, 17);
+            this.blInventoryValueTitle.Location = new System.Drawing.Point(111, 21);
+            this.blInventoryValueTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.blInventoryValueTitle.Name = "blInventoryValueTitle";
-            this.blInventoryValueTitle.Size = new System.Drawing.Size(143, 25);
+            this.blInventoryValueTitle.Size = new System.Drawing.Size(180, 32);
             this.blInventoryValueTitle.TabIndex = 1;
             this.blInventoryValueTitle.Text = "Inventory Value";
             this.blInventoryValueTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1395,22 +1481,32 @@
             this.lblInventoryValueValue.AutoSize = true;
             this.lblInventoryValueValue.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInventoryValueValue.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblInventoryValueValue.Location = new System.Drawing.Point(58, 42);
+            this.lblInventoryValueValue.Location = new System.Drawing.Point(77, 52);
+            this.lblInventoryValueValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInventoryValueValue.Name = "lblInventoryValueValue";
-            this.lblInventoryValueValue.Size = new System.Drawing.Size(38, 45);
+            this.lblInventoryValueValue.Size = new System.Drawing.Size(46, 54);
             this.lblInventoryValueValue.TabIndex = 0;
             this.lblInventoryValueValue.Text = "0";
             this.lblInventoryValueValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ucTransactionHistory1
+            // 
+            this.ucTransactionHistory1.Location = new System.Drawing.Point(0, 215);
+            this.ucTransactionHistory1.Margin = new System.Windows.Forms.Padding(5);
+            this.ucTransactionHistory1.Name = "ucTransactionHistory1";
+            this.ucTransactionHistory1.Size = new System.Drawing.Size(1925, 538);
+            this.ucTransactionHistory1.TabIndex = 0;
+            // 
             // DashboardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1627, 964);
+            this.ClientSize = new System.Drawing.Size(1540, 846);
             this.Controls.Add(this.pnlMainContent);
             this.Controls.Add(this.pnlNavigation);
             this.KeyPreview = true;
-            this.MinimumSize = new System.Drawing.Size(1643, 1003);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1533, 813);
             this.Name = "DashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DashboardForm";
