@@ -83,7 +83,7 @@
             this.btnSupply.Name = "btnSupply";
             this.btnSupply.Size = new System.Drawing.Size(75, 30);
             this.btnSupply.TabIndex = 6;
-            this.btnSupply.Text = "Supply";
+            this.btnSupply.Text = "Stock-In";
             this.btnSupply.UseVisualStyleBackColor = true;
             this.btnSupply.Click += new System.EventHandler(this.BtnSupply_Click);
             // 
@@ -91,11 +91,11 @@
             // 
             this.btnDeliver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeliver.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeliver.Location = new System.Drawing.Point(184, 404);
+            this.btnDeliver.Location = new System.Drawing.Point(178, 404);
             this.btnDeliver.Name = "btnDeliver";
-            this.btnDeliver.Size = new System.Drawing.Size(75, 30);
+            this.btnDeliver.Size = new System.Drawing.Size(92, 30);
             this.btnDeliver.TabIndex = 7;
-            this.btnDeliver.Text = "Deliver";
+            this.btnDeliver.Text = "Stock-Out";
             this.btnDeliver.UseVisualStyleBackColor = true;
             this.btnDeliver.Click += new System.EventHandler(this.BtnDeliver_Click);
             // 

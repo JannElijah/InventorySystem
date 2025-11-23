@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,7 +39,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvInventory = new System.Windows.Forms.DataGridView();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PurchaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StockQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LowStockThreshold = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvInventoryContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,16 +92,6 @@
             this.SaleItemTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SaleItemProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblContextName = new System.Windows.Forms.Label();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Barcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PurchaseCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StockQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LowStockThreshold = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             this.dgvInventoryContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -132,6 +132,97 @@
             this.dgvInventory.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.DgvInventory_CellPainting);
             this.dgvInventory.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DgvInventory_DataError);
             this.dgvInventory.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DgvInventory_MouseDown);
+            // 
+            // ProductID
+            // 
+            this.ProductID.DataPropertyName = "ProductID";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.ProductID.DefaultCellStyle = dataGridViewCellStyle1;
+            this.ProductID.FillWeight = 60F;
+            this.ProductID.HeaderText = "ProductID";
+            this.ProductID.Name = "ProductID";
+            // 
+            // Barcode
+            // 
+            this.Barcode.DataPropertyName = "Barcode";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Barcode.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Barcode.HeaderText = "Barcode";
+            this.Barcode.Name = "Barcode";
+            // 
+            // Brand
+            // 
+            this.Brand.DataPropertyName = "Brand";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Brand.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Brand.HeaderText = "Brand";
+            this.Brand.Name = "Brand";
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Description.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Description.FillWeight = 250F;
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            // 
+            // Volume
+            // 
+            this.Volume.DataPropertyName = "Volume";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Volume.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Volume.FillWeight = 60F;
+            this.Volume.HeaderText = "Volume";
+            this.Volume.Name = "Volume";
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Type.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Type.FillWeight = 80F;
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            // 
+            // PurchaseCost
+            // 
+            this.PurchaseCost.DataPropertyName = "PurchaseCost";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Format = "₱#,##0.00";
+            dataGridViewCellStyle7.NullValue = null;
+            this.PurchaseCost.DefaultCellStyle = dataGridViewCellStyle7;
+            this.PurchaseCost.FillWeight = 80F;
+            this.PurchaseCost.HeaderText = "Purchase Cost";
+            this.PurchaseCost.Name = "PurchaseCost";
+            // 
+            // SellingPrice
+            // 
+            this.SellingPrice.DataPropertyName = "SellingPrice";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "₱#,##0.00";
+            this.SellingPrice.DefaultCellStyle = dataGridViewCellStyle8;
+            this.SellingPrice.FillWeight = 80F;
+            this.SellingPrice.HeaderText = "Selling Price";
+            this.SellingPrice.Name = "SellingPrice";
+            // 
+            // StockQuantity
+            // 
+            this.StockQuantity.DataPropertyName = "StockQuantity";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.StockQuantity.DefaultCellStyle = dataGridViewCellStyle9;
+            this.StockQuantity.FillWeight = 60F;
+            this.StockQuantity.HeaderText = "Stock Quantity";
+            this.StockQuantity.Name = "StockQuantity";
+            // 
+            // LowStockThreshold
+            // 
+            this.LowStockThreshold.DataPropertyName = "LowStockThreshold";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.LowStockThreshold.DefaultCellStyle = dataGridViewCellStyle10;
+            this.LowStockThreshold.HeaderText = "Low Stock Threshold";
+            this.LowStockThreshold.Name = "LowStockThreshold";
+            this.LowStockThreshold.Visible = false;
             // 
             // dgvInventoryContextMenu
             // 
@@ -545,97 +636,6 @@
             this.lblContextName.Size = new System.Drawing.Size(43, 17);
             this.lblContextName.TabIndex = 0;
             this.lblContextName.Text = "label1";
-            // 
-            // ProductID
-            // 
-            this.ProductID.DataPropertyName = "ProductID";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.ProductID.DefaultCellStyle = dataGridViewCellStyle1;
-            this.ProductID.FillWeight = 60F;
-            this.ProductID.HeaderText = "ProductID";
-            this.ProductID.Name = "ProductID";
-            // 
-            // Barcode
-            // 
-            this.Barcode.DataPropertyName = "Barcode";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Barcode.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Barcode.HeaderText = "Barcode";
-            this.Barcode.Name = "Barcode";
-            // 
-            // Brand
-            // 
-            this.Brand.DataPropertyName = "Brand";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Brand.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Brand.HeaderText = "Brand";
-            this.Brand.Name = "Brand";
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Description.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Description.FillWeight = 250F;
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            // 
-            // Volume
-            // 
-            this.Volume.DataPropertyName = "Volume";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Volume.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Volume.FillWeight = 60F;
-            this.Volume.HeaderText = "Volume";
-            this.Volume.Name = "Volume";
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Type.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Type.FillWeight = 80F;
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            // 
-            // PurchaseCost
-            // 
-            this.PurchaseCost.DataPropertyName = "PurchaseCost";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Format = "₱#,##0.00";
-            dataGridViewCellStyle7.NullValue = null;
-            this.PurchaseCost.DefaultCellStyle = dataGridViewCellStyle7;
-            this.PurchaseCost.FillWeight = 80F;
-            this.PurchaseCost.HeaderText = "Purchase Cost";
-            this.PurchaseCost.Name = "PurchaseCost";
-            // 
-            // SellingPrice
-            // 
-            this.SellingPrice.DataPropertyName = "SellingPrice";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Format = "₱#,##0.00";
-            this.SellingPrice.DefaultCellStyle = dataGridViewCellStyle8;
-            this.SellingPrice.FillWeight = 80F;
-            this.SellingPrice.HeaderText = "Selling Price";
-            this.SellingPrice.Name = "SellingPrice";
-            // 
-            // StockQuantity
-            // 
-            this.StockQuantity.DataPropertyName = "StockQuantity";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.StockQuantity.DefaultCellStyle = dataGridViewCellStyle9;
-            this.StockQuantity.FillWeight = 60F;
-            this.StockQuantity.HeaderText = "Stock Quantity";
-            this.StockQuantity.Name = "StockQuantity";
-            // 
-            // LowStockThreshold
-            // 
-            this.LowStockThreshold.DataPropertyName = "LowStockThreshold";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.LowStockThreshold.DefaultCellStyle = dataGridViewCellStyle10;
-            this.LowStockThreshold.HeaderText = "Low Stock Threshold";
-            this.LowStockThreshold.Name = "LowStockThreshold";
-            this.LowStockThreshold.Visible = false;
             // 
             // Form1
             // 

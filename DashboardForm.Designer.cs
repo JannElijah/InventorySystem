@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pnlNavigation = new System.Windows.Forms.Panel();
             this.btnViewReports = new System.Windows.Forms.Button();
             this.imageListNav = new System.Windows.Forms.ImageList(this.components);
@@ -119,7 +119,6 @@
             this.pnlQuickActions = new System.Windows.Forms.Panel();
             this.btnQuickDelivery = new System.Windows.Forms.Button();
             this.btnQuickSupply = new System.Windows.Forms.Button();
-            this.ucTransactionHistory1 = new InventorySystem.ucTransactionHistory();
             this.dgvRecentTransactions = new System.Windows.Forms.DataGridView();
             this.lblHistoryTitle = new System.Windows.Forms.Label();
             this.pnlKpiContainer = new System.Windows.Forms.FlowLayoutPanel();
@@ -135,6 +134,7 @@
             this.pnlKpiInventoryValue = new System.Windows.Forms.Panel();
             this.blInventoryValueTitle = new System.Windows.Forms.Label();
             this.lblInventoryValueValue = new System.Windows.Forms.Label();
+            this.ucTransactionHistory1 = new InventorySystem.ucTransactionHistory();
             this.pnlNavigation.SuspendLayout();
             this.pnlMainContent.SuspendLayout();
             this.pnlTransactionSummary.SuspendLayout();
@@ -730,9 +730,9 @@
             this.lblItemsSuppliedTitle.AutoSize = true;
             this.lblItemsSuppliedTitle.Location = new System.Drawing.Point(3, 0);
             this.lblItemsSuppliedTitle.Name = "lblItemsSuppliedTitle";
-            this.lblItemsSuppliedTitle.Size = new System.Drawing.Size(64, 32);
+            this.lblItemsSuppliedTitle.Size = new System.Drawing.Size(58, 16);
             this.lblItemsSuppliedTitle.TabIndex = 0;
-            this.lblItemsSuppliedTitle.Text = "Items Supplied:";
+            this.lblItemsSuppliedTitle.Text = "Stock-In:";
             this.lblItemsSuppliedTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblItemsSuppliedToday
@@ -781,9 +781,9 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(126, 21);
+            this.label1.Size = new System.Drawing.Size(135, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Supply Activity";
+            this.label1.Text = "Stock-In Activity";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
@@ -822,9 +822,9 @@
             this.lblItemsDeliveredTitle.AutoSize = true;
             this.lblItemsDeliveredTitle.Location = new System.Drawing.Point(3, 0);
             this.lblItemsDeliveredTitle.Name = "lblItemsDeliveredTitle";
-            this.lblItemsDeliveredTitle.Size = new System.Drawing.Size(69, 32);
+            this.lblItemsDeliveredTitle.Size = new System.Drawing.Size(68, 16);
             this.lblItemsDeliveredTitle.TabIndex = 0;
-            this.lblItemsDeliveredTitle.Text = "Items Delivered:";
+            this.lblItemsDeliveredTitle.Text = "Stock-Out:";
             this.lblItemsDeliveredTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblItemsDeliveredToday
@@ -873,9 +873,9 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 21);
+            this.label3.Size = new System.Drawing.Size(148, 21);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Delivery Activity";
+            this.label3.Text = "Stock-Out Activity";
             // 
             // panel3
             // 
@@ -1082,17 +1082,17 @@
             // chartPerformance
             // 
             this.chartPerformance.BackColor = System.Drawing.Color.WhiteSmoke;
-            chartArea1.Name = "ChartArea1";
-            this.chartPerformance.ChartAreas.Add(chartArea1);
+            chartArea4.Name = "ChartArea1";
+            this.chartPerformance.ChartAreas.Add(chartArea4);
             this.chartPerformance.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chartPerformance.Legends.Add(legend1);
+            legend4.Name = "Legend1";
+            this.chartPerformance.Legends.Add(legend4);
             this.chartPerformance.Location = new System.Drawing.Point(0, 0);
             this.chartPerformance.Name = "chartPerformance";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartPerformance.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartPerformance.Series.Add(series4);
             this.chartPerformance.Size = new System.Drawing.Size(652, 310);
             this.chartPerformance.TabIndex = 0;
             this.chartPerformance.Text = "chart1";
@@ -1109,17 +1109,17 @@
             // 
             // chartSalesTrend
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartSalesTrend.ChartAreas.Add(chartArea2);
+            chartArea5.Name = "ChartArea1";
+            this.chartSalesTrend.ChartAreas.Add(chartArea5);
             this.chartSalesTrend.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.chartSalesTrend.Legends.Add(legend2);
+            legend5.Name = "Legend1";
+            this.chartSalesTrend.Legends.Add(legend5);
             this.chartSalesTrend.Location = new System.Drawing.Point(0, 0);
             this.chartSalesTrend.Name = "chartSalesTrend";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartSalesTrend.Series.Add(series2);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chartSalesTrend.Series.Add(series5);
             this.chartSalesTrend.Size = new System.Drawing.Size(652, 310);
             this.chartSalesTrend.TabIndex = 0;
             this.chartSalesTrend.Text = "chart1";
@@ -1169,17 +1169,17 @@
             // 
             // chartSalesBreakdown
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartSalesBreakdown.ChartAreas.Add(chartArea3);
+            chartArea6.Name = "ChartArea1";
+            this.chartSalesBreakdown.ChartAreas.Add(chartArea6);
             this.chartSalesBreakdown.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Name = "Legend1";
-            this.chartSalesBreakdown.Legends.Add(legend3);
+            legend6.Name = "Legend1";
+            this.chartSalesBreakdown.Legends.Add(legend6);
             this.chartSalesBreakdown.Location = new System.Drawing.Point(0, 0);
             this.chartSalesBreakdown.Name = "chartSalesBreakdown";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartSalesBreakdown.Series.Add(series3);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chartSalesBreakdown.Series.Add(series6);
             this.chartSalesBreakdown.Size = new System.Drawing.Size(652, 310);
             this.chartSalesBreakdown.TabIndex = 2;
             this.chartSalesBreakdown.Text = "chart1";
@@ -1201,7 +1201,7 @@
             this.btnQuickDelivery.Name = "btnQuickDelivery";
             this.btnQuickDelivery.Size = new System.Drawing.Size(190, 45);
             this.btnQuickDelivery.TabIndex = 1;
-            this.btnQuickDelivery.Text = "New Delivery";
+            this.btnQuickDelivery.Text = "New Stock-Out";
             this.btnQuickDelivery.UseVisualStyleBackColor = true;
             this.btnQuickDelivery.Click += new System.EventHandler(this.btnQuickDelivery_Click);
             // 
@@ -1212,16 +1212,9 @@
             this.btnQuickSupply.Name = "btnQuickSupply";
             this.btnQuickSupply.Size = new System.Drawing.Size(190, 43);
             this.btnQuickSupply.TabIndex = 0;
-            this.btnQuickSupply.Text = "New Supply";
+            this.btnQuickSupply.Text = "New Stock-In";
             this.btnQuickSupply.UseVisualStyleBackColor = true;
             this.btnQuickSupply.Click += new System.EventHandler(this.btnQuickSupply_Click);
-            // 
-            // ucTransactionHistory1
-            // 
-            this.ucTransactionHistory1.Location = new System.Drawing.Point(0, 175);
-            this.ucTransactionHistory1.Name = "ucTransactionHistory1";
-            this.ucTransactionHistory1.Size = new System.Drawing.Size(1444, 437);
-            this.ucTransactionHistory1.TabIndex = 0;
             // 
             // dgvRecentTransactions
             // 
@@ -1402,6 +1395,13 @@
             this.lblInventoryValueValue.Text = "0";
             this.lblInventoryValueValue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ucTransactionHistory1
+            // 
+            this.ucTransactionHistory1.Location = new System.Drawing.Point(0, 175);
+            this.ucTransactionHistory1.Name = "ucTransactionHistory1";
+            this.ucTransactionHistory1.Size = new System.Drawing.Size(1444, 437);
+            this.ucTransactionHistory1.TabIndex = 0;
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1409,6 +1409,7 @@
             this.ClientSize = new System.Drawing.Size(1627, 964);
             this.Controls.Add(this.pnlMainContent);
             this.Controls.Add(this.pnlNavigation);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(1643, 1003);
             this.Name = "DashboardForm";

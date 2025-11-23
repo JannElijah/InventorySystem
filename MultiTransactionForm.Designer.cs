@@ -243,7 +243,7 @@
             this.rbDelivery.Size = new System.Drawing.Size(132, 21);
             this.rbDelivery.TabIndex = 2;
             this.rbDelivery.TabStop = true;
-            this.rbDelivery.Text = "Process a Delivery";
+            this.rbDelivery.Text = "Process Stock-Out";
             this.rbDelivery.UseVisualStyleBackColor = true;
             this.rbDelivery.CheckedChanged += new System.EventHandler(this.rbMode_CheckedChanged);
             // 
@@ -253,10 +253,10 @@
             this.rbSupply.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbSupply.Location = new System.Drawing.Point(34, 25);
             this.rbSupply.Name = "rbSupply";
-            this.rbSupply.Size = new System.Drawing.Size(125, 21);
+            this.rbSupply.Size = new System.Drawing.Size(121, 21);
             this.rbSupply.TabIndex = 1;
             this.rbSupply.TabStop = true;
-            this.rbSupply.Text = "Process a Supply";
+            this.rbSupply.Text = "Process Stock-In";
             this.rbSupply.UseVisualStyleBackColor = true;
             this.rbSupply.CheckedChanged += new System.EventHandler(this.rbMode_CheckedChanged);
             // 

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text;
 using System.Drawing;
-using System.Globalization; // Needed for Peso formatting
+using System.Globalization;
 
 namespace InventorySystem
 {
@@ -25,13 +25,12 @@ namespace InventorySystem
             _repository = new DatabaseRepository();
         }
 
-        // === 1. FORCE THE GRID TO CREATE THE CORRECT COLUMNS ===
+        // === 1. SETUP COLUMNS ===
         private void SetupColumns()
         {
             dgvHistory.AutoGenerateColumns = false;
             dgvHistory.Columns.Clear();
 
-            // Define columns programmatically to ensure they match the data exactly
             dgvHistory.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "TransactionID",
@@ -50,15 +49,15 @@ namespace InventorySystem
             {
                 DataPropertyName = "ProductDescription",
                 HeaderText = "Product Description",
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill // Fill remaining space
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             });
 
             dgvHistory.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "TransactionType",
                 HeaderText = "Type",
-                Width = 80,
-                Name = "TransactionType" // Name needed for Formatting logic
+                Width = 100,
+                Name = "TransactionType"
             });
 
             dgvHistory.Columns.Add(new DataGridViewTextBoxColumn
@@ -66,7 +65,7 @@ namespace InventorySystem
                 DataPropertyName = "Price",
                 HeaderText = "Value",
                 Width = 100,
-                Name = "Price" // Name needed for Formatting logic
+                Name = "Price"
             });
 
             dgvHistory.Columns.Add(new DataGridViewTextBoxColumn
@@ -105,19 +104,30 @@ namespace InventorySystem
         {
             if (this.DesignMode) return;
 
-            // Call the setup method to fix the gray/empty grid issue
             SetupColumns();
 
-            // Populate filters
+            // === WIRE UP THE DATA ERROR HANDLER TO STOP POPUPS ===
+            dgvHistory.DataError += DgvHistory_DataError;
+
+            // === UPDATED FILTERS ===
             cmbTypeFilter.Items.Clear();
             cmbTypeFilter.Items.Add("All");
-            cmbTypeFilter.Items.Add("Supply");
-            cmbTypeFilter.Items.Add("Delivery");
+            cmbTypeFilter.Items.Add("Stock-In");  // Fixed Capitalization
+            cmbTypeFilter.Items.Add("Stock-Out"); // Fixed Capitalization
             cmbTypeFilter.SelectedIndex = 0;
 
             RefreshTransactions();
-            txtSearch.TextChanged -= txtSearch_TextChanged; // Prevent double-clicking
+            txtSearch.TextChanged -= txtSearch_TextChanged;
             txtSearch.TextChanged += txtSearch_TextChanged;
+        }
+
+        // === NEW METHOD: SUPPRESS ERRORS ===
+        private void DgvHistory_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            // This stops the "System.FormatException" popup.
+            // We just ignore the error because we are handling the display manually in CellFormatting.
+            e.ThrowException = false;
+            e.Cancel = true;
         }
 
         public void RefreshTransactions()
@@ -131,7 +141,6 @@ namespace InventorySystem
                 }
                 catch (Exception ex)
                 {
-                    // Fail silently in UI but log if possible, helps prevent crash on load
                     System.Diagnostics.Debug.WriteLine("Error refreshing history: " + ex.Message);
                 }
             }
@@ -147,10 +156,19 @@ namespace InventorySystem
             if (cmbTypeFilter.SelectedItem != null && cmbTypeFilter.SelectedItem.ToString() != "All")
             {
                 string selectedType = cmbTypeFilter.SelectedItem.ToString();
-                filteredList = filteredList.Where(t => t.TransactionType == selectedType);
+
+                // === FIX: Case Insensitive Check ===
+                if (selectedType.Equals("Stock-In", StringComparison.OrdinalIgnoreCase))
+                {
+                    filteredList = filteredList.Where(t => t.TransactionType.Equals("Stock-In", StringComparison.OrdinalIgnoreCase) || t.TransactionType == "Supply");
+                }
+                else if (selectedType.Equals("Stock-Out", StringComparison.OrdinalIgnoreCase))
+                {
+                    filteredList = filteredList.Where(t => t.TransactionType.Equals("Stock-Out", StringComparison.OrdinalIgnoreCase) || t.TransactionType == "Delivery");
+                }
             }
 
-            // Filter by Date (Only if checked)
+            // Filter by Date
             if (chkFilterByDate.Checked)
             {
                 filteredList = filteredList.Where(t => t.TransactionDate.Date == dtpDateFilter.Value.Date);
@@ -194,7 +212,6 @@ namespace InventorySystem
 
         private void UpdateTransactionDetails()
         {
-            // Helper to update the summary labels on the Dashboard
             var lblTransactionValue = this.ParentForm?.Controls.Find("lblTransactionValue", true).FirstOrDefault() as Label;
             var lblDateRange = this.ParentForm?.Controls.Find("lblDateRange", true).FirstOrDefault() as Label;
 
@@ -211,12 +228,17 @@ namespace InventorySystem
             decimal totalValue = 0;
             foreach (var t in displayedTransactions)
             {
-                // Supply is Cost (Negative cash flow or Asset addition), Delivery is Revenue
-                if (t.TransactionType == "Delivery") totalValue += t.Price;
-                else if (t.TransactionType == "Supply") totalValue -= (t.PurchaseCost * t.QuantityChange);
+                // === FIX: Case Insensitive Checks ===
+                if (t.TransactionType.Equals("Stock-Out", StringComparison.OrdinalIgnoreCase) || t.TransactionType == "Delivery")
+                {
+                    totalValue += t.Price;
+                }
+                else if (t.TransactionType.Equals("Stock-In", StringComparison.OrdinalIgnoreCase) || t.TransactionType == "Supply")
+                {
+                    totalValue -= (t.PurchaseCost * t.QuantityChange);
+                }
             }
 
-            // Just showing the net sum of displayed items for now
             lblTransactionValue.Text = totalValue.ToString("C", phCulture);
             lblTransactionValue.ForeColor = totalValue >= 0 ? Color.Green : Color.Red;
 
@@ -234,27 +256,40 @@ namespace InventorySystem
             if (transaction == null) return;
 
             string columnName = dgvHistory.Columns[e.ColumnIndex].Name;
+            string type = transaction.TransactionType;
 
-            // Color Code the Type
+            // === FIX: Robust String Checking (Handles "Stock-In", "Stock-in", "Stock-IN") ===
+            bool isStockOut = type.Equals("Stock-Out", StringComparison.OrdinalIgnoreCase) || type.Equals("Delivery", StringComparison.OrdinalIgnoreCase);
+            bool isStockIn = type.Equals("Stock-In", StringComparison.OrdinalIgnoreCase) || type.Equals("Supply", StringComparison.OrdinalIgnoreCase);
+
+            // === COLOR CODE THE TYPE ===
             if (columnName == "TransactionType")
             {
-                if (transaction.TransactionType == "Delivery") e.CellStyle.ForeColor = Color.Red;
-                else if (transaction.TransactionType == "Supply") e.CellStyle.ForeColor = Color.Green;
+                if (isStockOut)
+                {
+                    e.CellStyle.ForeColor = Color.Red;
+                    e.Value = "Stock-Out"; // Force nice casing
+                }
+                else if (isStockIn)
+                {
+                    e.CellStyle.ForeColor = Color.Green;
+                    e.Value = "Stock-In"; // Force nice casing
+                }
             }
 
-            // Format the Price with Peso sign
+            // === FORMAT THE PRICE ===
             if (columnName == "Price")
             {
-                if (transaction.TransactionType == "Delivery")
+                if (isStockOut)
                 {
                     e.Value = $"+ {transaction.Price.ToString("C", phCulture)}";
-                    e.CellStyle.ForeColor = Color.Green; // Money coming in
+                    e.CellStyle.ForeColor = Color.Green;
                 }
-                else if (transaction.TransactionType == "Supply")
+                else if (isStockIn)
                 {
                     decimal cost = transaction.PurchaseCost * transaction.QuantityChange;
                     e.Value = $"- {cost.ToString("C", phCulture)}";
-                    e.CellStyle.ForeColor = Color.Red; // Money going out
+                    e.CellStyle.ForeColor = Color.Red;
                 }
                 e.FormattingApplied = true;
             }
@@ -279,9 +314,7 @@ namespace InventorySystem
                 try
                 {
                     StringBuilder csv = new StringBuilder();
-                    // Headers
                     csv.AppendLine(string.Join(",", dgvHistory.Columns.Cast<DataGridViewColumn>().Select(c => c.HeaderText)));
-                    // Rows
                     foreach (DataGridViewRow row in dgvHistory.Rows)
                     {
                         var cells = row.Cells.Cast<DataGridViewCell>().Select(c => $"\"{c.Value}\"");

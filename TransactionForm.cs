@@ -78,7 +78,7 @@ namespace InventorySystem
                 return;
             }
 
-            this.TransactionType = "Supply";
+            this.TransactionType = "Stock-in";
             this.SelectedSupplierId = (int)cmbSuppliers.SelectedValue;
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -86,10 +86,10 @@ namespace InventorySystem
 
         private void BtnDeliver_Click(object sender, EventArgs e)
         {
-            this.TransactionType = "Deliver";
+            this.TransactionType = "Stock-Out";
             if (string.IsNullOrWhiteSpace(txtDeliverTo.Text))
             {
-                MessageBox.Show("Please enter a customer name for the delivery.", "Customer Name Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter a customer name for the Stock-Out.", "Customer Name Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDeliverTo.Focus();
                 return;
             }
@@ -102,7 +102,7 @@ namespace InventorySystem
             }
 
             this.CustomerName = txtDeliverTo.Text.Trim();
-            this.TransactionType = "Deliver";
+            this.TransactionType = "Stock-Out";
             this.SelectedSupplierId = null;
             this.DialogResult = DialogResult.OK;
             this.Close();

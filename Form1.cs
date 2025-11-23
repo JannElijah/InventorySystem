@@ -366,10 +366,63 @@ namespace InventorySystem
             btnBulkEdit.Enabled = dgvInventory.SelectedRows.Count > 1 && isAdmin;
         }
 
-        // === MODIFIED: Simplified to update fields and call the central UpdateButtonStates method ===
-        // === MODIFIED ===
+        // Paste this inside Form1.cs
+        // Paste this inside Form1.cs
+        private void SetupCartGrid()
+        {
+            dgvCurrentSale.Columns.Clear();
 
-        // === NEW: Event handler for the quantity selector ===
+            // Standard Description
+            var colDescription = new DataGridViewTextBoxColumn
+            {
+                Name = "colDescription",
+                HeaderText = "Description",
+                DataPropertyName = "Description",
+                ReadOnly = true,
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            };
+
+            // Standard Quantity
+            var colQuantity = new DataGridViewTextBoxColumn
+            {
+                Name = "colQuantity",
+                HeaderText = "Quantity",
+                DataPropertyName = "Quantity",
+                ReadOnly = false,
+                Width = 70
+            };
+
+            // Standard Unit Price
+            var colUnitPrice = new DataGridViewTextBoxColumn
+            {
+                Name = "colUnitPrice",
+                HeaderText = "Unit Price",
+                DataPropertyName = "UnitPrice",
+                ReadOnly = true,
+                Width = 100
+            };
+            colUnitPrice.DefaultCellStyle.FormatProvider = new System.Globalization.CultureInfo("en-PH");
+            colUnitPrice.DefaultCellStyle.Format = "c";
+            colUnitPrice.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            // Standard Total
+            var colTotal = new DataGridViewTextBoxColumn
+            {
+                Name = "colTotal",
+                HeaderText = "Total",
+                DataPropertyName = "Total",
+                ReadOnly = true,
+                Width = 120
+            };
+            colTotal.DefaultCellStyle.FormatProvider = new System.Globalization.CultureInfo("en-PH");
+            colTotal.DefaultCellStyle.Format = "c";
+            colTotal.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dgvCurrentSale.Columns.AddRange(new DataGridViewColumn[] {
+        colDescription, colQuantity, colUnitPrice, colTotal
+    });
+        }
+
 
         private void BtnViewHistory_Click(object sender, EventArgs e)
         {
@@ -475,11 +528,6 @@ namespace InventorySystem
 
         #endregion
 
-
-        // PASTE THIS REPLACEMENT METHOD INTO Form1.cs
-        // PASTE THIS AS A COMPLETE REPLACEMENT FOR your btnPrintBarcode_Click method
-
-        // PASTE THIS AS A COMPLETE REPLACEMENT for your btnPrintBarcode_Click method
         private void btnPrintBarcode_Click(object sender, EventArgs e)
         {
             if (dgvInventory.SelectedRows.Count > 0)
@@ -756,9 +804,11 @@ namespace InventorySystem
 
         private async void HandleBarcodeScan()
         {
+            // 1. Get the scanned barcode
             string barcode = _barcodeBuffer.ToString();
             _barcodeBuffer.Clear();
 
+            // 2. Find the product
             Product product = _allProducts.FirstOrDefault(p => p.Barcode == barcode);
 
             if (product == null)
@@ -767,37 +817,57 @@ namespace InventorySystem
                 return;
             }
 
-            // --- NEW: Determine if we need to pass a pre-selected supplier or customer ---
+            // 3. Determine if we need to pass a pre-selected supplier or customer
             int? preselectedSupplierId = null;
             string currentCustomerName = null;
 
-            if (_currentTransactionMode == "Supply" && _currentSupplyOrder != null)
+            if (_currentTransactionMode == "Stock-In" && _currentSupplyOrder != null)
             {
                 preselectedSupplierId = _currentSupplyOrder.SupplierId;
             }
-            else if (_currentTransactionMode == "Deliver" && _currentSale != null)
+            else if (_currentTransactionMode == "Stock-Out" && _currentSale != null)
             {
                 currentCustomerName = _currentSale.CustomerName;
             }
 
-            // --- MODIFIED: Pass the new information to the constructor ---
+            // 4. Open the Transaction Dialog
             using (var transactionDialog = new TransactionForm(product, allSuppliers, currentCustomerName, preselectedSupplierId))
             {
                 if (transactionDialog.ShowDialog(this) == DialogResult.OK)
                 {
                     int quantity = transactionDialog.SelectedQuantity;
-                    string transactionType = transactionDialog.TransactionType;
+                    string rawType = transactionDialog.TransactionType; // Get the raw text from the button click
 
-                    // Check if we are starting a NEW type of transaction while another is active.
-                    if (!string.IsNullOrEmpty(_currentTransactionMode) && _currentTransactionMode != transactionType)
+                    // === FIX START: NORMALIZE THE NAME IMMEDIATELY ===
+                    // This ensures that "Supply", "Stock-in", and "Stock-In" are all treated as the same thing.
+                    string newMode = "";
+
+                    if (rawType.Equals("Stock-In", StringComparison.OrdinalIgnoreCase) ||
+                        rawType.Equals("Supply", StringComparison.OrdinalIgnoreCase))
+                    {
+                        newMode = "Stock-In";
+                    }
+                    else if (rawType.Equals("Stock-Out", StringComparison.OrdinalIgnoreCase) ||
+                             rawType.Equals("Deliver", StringComparison.OrdinalIgnoreCase) ||
+                             rawType.Equals("Delivery", StringComparison.OrdinalIgnoreCase))
+                    {
+                        newMode = "Stock-Out";
+                    }
+                    // === FIX END ===
+
+                    // 5. Check if we are starting a NEW type of transaction while another is active.
+                    // Now we compare 'newMode' (which is clean) against '_currentTransactionMode'
+                    if (!string.IsNullOrEmpty(_currentTransactionMode) && _currentTransactionMode != newMode)
                     {
                         MessageBox.Show($"A '{_currentTransactionMode}' transaction is already in progress. Please complete or cancel it before starting a new transaction type.", "Transaction in Progress", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
-                    _currentTransactionMode = transactionType;
+                    // 6. Set the mode to the clean version
+                    _currentTransactionMode = newMode;
 
-                    if (transactionType == "Supply")
+                    // 7. Add to the correct list
+                    if (_currentTransactionMode == "Stock-In")
                     {
                         if (_currentSupplyOrder == null)
                         {
@@ -819,7 +889,7 @@ namespace InventorySystem
                         };
                         _currentSupplyOrder.Items.Add(supplyItem);
                     }
-                    else if (transactionType == "Deliver")
+                    else if (_currentTransactionMode == "Stock-Out")
                     {
                         if (_currentSale == null)
                         {
@@ -844,50 +914,53 @@ namespace InventorySystem
         }
         // PASTE THIS COMPLETE REPLACEMENT into Form1.cs
 
+        // Paste this inside Form1.cs
         private void UpdateCartPanelUI()
         {
-            // --- CRITICAL FIX: Reset the DataSource BEFORE any logic ---
-            // This forces the grid to detach from the old data and prevents binding conflicts.
+            // Reset the datasource to prevent glitches
             dgvCurrentSale.DataSource = null;
 
-            if (_currentTransactionMode == "Supply" && _currentSupplyOrder != null)
+            // Logic for Stock-In
+            if (_currentTransactionMode == "Stock-In" && _currentSupplyOrder != null)
             {
                 pnlCurrentTransaction.Visible = true;
+
+                // Standard Labels
                 lblContextName.Text = $"Supplier: {_currentSupplyOrder.SupplierName}";
                 lblDate.Text = $"Date: {DateTime.Now:yyyy-MM-dd}";
-                btnConfirmTransaction.Text = "Confirm Supply";
+                btnConfirmTransaction.Text = "Confirm Stock-In";
 
-                // Configure grid columns for a "Supply" view
+                // Setup for Cost
                 dgvCurrentSale.Columns["colUnitPrice"].HeaderText = "Purchase Cost";
                 dgvCurrentSale.Columns["colUnitPrice"].DataPropertyName = "PurchaseCost";
 
-                // Now, safely bind to the new data source
+                // Bind Data
                 dgvCurrentSale.DataSource = _currentSupplyOrder.Items;
                 lblSubtotal.Text = $"Subtotal: {_currentSupplyOrder.Subtotal:C}";
             }
-            else if (_currentTransactionMode == "Deliver" && _currentSale != null)
+            // Logic for Stock-Out
+            else if (_currentTransactionMode == "Stock-Out" && _currentSale != null)
             {
                 pnlCurrentTransaction.Visible = true;
-                lblContextName.Text = $"Customer: {_currentSale.CustomerName}";
-                lblDate.Text = $"Date: {_currentSale.SaleDate:yyyy-MM-dd}"; // This now works
-                btnConfirmTransaction.Text = "Confirm Delivery";
 
-                // Configure grid columns for a "Delivery" view
+                // Standard Labels
+                lblContextName.Text = $"Customer: {_currentSale.CustomerName}";
+                lblDate.Text = $"Date: {_currentSale.SaleDate:yyyy-MM-dd}";
+                btnConfirmTransaction.Text = "Confirm Stock-Out";
+
+                // Setup for Price
                 dgvCurrentSale.Columns["colUnitPrice"].HeaderText = "Unit Price";
                 dgvCurrentSale.Columns["colUnitPrice"].DataPropertyName = "UnitPrice";
 
-                // Now, safely bind to the new data source
+                // Bind Data
                 dgvCurrentSale.DataSource = _currentSale.Items;
                 lblSubtotal.Text = $"Subtotal: {_currentSale.Subtotal:C}";
             }
             else
             {
-                // If no transaction is active, ensure the panel is hidden.
+                // Hide panel if nothing is happening
                 pnlCurrentTransaction.Visible = false;
             }
-
-            // No need for dgvCurrentSale.Refresh() here, as changing the DataSource
-            // automatically triggers a repaint.
         }
         private void UpdateSubtotal()
         {
@@ -897,75 +970,22 @@ namespace InventorySystem
             }
         }
 
-        // PASTE THIS ENTIRE NEW METHOD into Form1.cs
-        private void SetupCartGrid()
-        {
-            dgvCurrentSale.Columns.Clear();
-
-            // Standard columns...
-            var colDescription = new DataGridViewTextBoxColumn
-            {
-                Name = "colDescription",
-                HeaderText = "Description",
-                DataPropertyName = "Description",
-                ReadOnly = true,
-                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-            };
-
-            var colQuantity = new DataGridViewTextBoxColumn
-            {
-                Name = "colQuantity",
-                HeaderText = "Quantity",
-                DataPropertyName = "Quantity",
-                ReadOnly = false,
-                Width = 70
-            };
-
-            // === FIX 5: Force Peso Formatting for Unit Price ===
-            var colUnitPrice = new DataGridViewTextBoxColumn
-            {
-                Name = "colUnitPrice",
-                HeaderText = "Unit Price",
-                DataPropertyName = "UnitPrice",
-                ReadOnly = true,
-                Width = 100
-            };
-            colUnitPrice.DefaultCellStyle.FormatProvider = new System.Globalization.CultureInfo("en-PH");
-            colUnitPrice.DefaultCellStyle.Format = "c";
-            colUnitPrice.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-            // === FIX 5: Force Peso Formatting for Total ===
-            var colTotal = new DataGridViewTextBoxColumn
-            {
-                Name = "colTotal",
-                HeaderText = "Total",
-                DataPropertyName = "Total",
-                ReadOnly = true,
-                Width = 120
-            };
-            colTotal.DefaultCellStyle.FormatProvider = new System.Globalization.CultureInfo("en-PH");
-            colTotal.DefaultCellStyle.Format = "c";
-            colTotal.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-            dgvCurrentSale.Columns.AddRange(new DataGridViewColumn[] {
-            colDescription, colQuantity, colUnitPrice, colTotal
-        });
-        }
-        // The signature is changed from "async void" to "async Task<Transaction>"
+        
         private async Task<Transaction> ProcessSingleTransaction(Product product, int quantity, string transactionType, int? supplierId)
         {
             int newStock;
 
-            if (transactionType == "Supply")
+            // CHANGE "Supply" -> "Stock-In"
+            if (transactionType == "Stock-In")
             {
                 newStock = product.StockQuantity + quantity;
             }
-            else // Delivery
+            else // It is Stock-Out (formerly Delivery)
             {
                 if (quantity > product.StockQuantity)
                 {
                     MessageBox.Show($"Insufficient stock for '{product.Description}'. Only {product.StockQuantity} units are available.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return null; // Return null to indicate failure
+                    return null;
                 }
                 newStock = product.StockQuantity - quantity;
             }
@@ -987,21 +1007,20 @@ namespace InventorySystem
             lblStatus.Text = $"Success: {transactionType} of {quantity} units for '{product.Description}' processed.";
             RefreshDataGrid();
 
-            // Visual Flash Feedback Logic (no changes here, but now it's inside a method that returns a value)
+            // Visual Flash Feedback Logic
             DataGridViewRow rowToUpdate = dgvInventory.Rows
                 .Cast<DataGridViewRow>()
                 .FirstOrDefault(r => ((Product)r.DataBoundItem).ProductID == product.ProductID);
 
             if (rowToUpdate != null)
             {
-                var flashColor = transactionType == "Supply" ? Color.PaleGreen : Color.Gold;
+                // Flash Green for Stock-In, Gold for Stock-Out
+                var flashColor = (transactionType == "Stock-In") ? Color.PaleGreen : Color.Gold;
                 rowToUpdate.DefaultCellStyle.BackColor = flashColor;
                 await Task.Delay(1000);
                 ApplyRowStyling();
             }
 
-            // --- THIS IS THE CRITICAL ADDITION ---
-            // Return the completed transaction object so the caller knows its ID.
             return transaction;
         }
 
@@ -1017,11 +1036,12 @@ namespace InventorySystem
         private async void btnConfirmTransaction_Click(object sender, EventArgs e)
         {
             btnConfirmTransaction.Enabled = false;
-            this.Cursor = Cursors.WaitCursor; // Visual feedback that system is working
+            this.Cursor = Cursors.WaitCursor;
 
             try
             {
-                if (_currentTransactionMode == "Deliver")
+                // CHANGE "Deliver" -> "Stock-Out"
+                if (_currentTransactionMode == "Stock-Out")
                 {
                     if (_currentSale == null || _currentSale.Items.Count == 0)
                     {
@@ -1029,14 +1049,12 @@ namespace InventorySystem
                         return;
                     }
 
-                    // === LOGIC === 
-                    // Because we enabled WAL in DatabaseRepository, this call
-                    // will no longer lock up the Dashboard reading in the background.
                     _repository.ProcessCompleteSale(_currentSale);
 
-                    MessageBox.Show("Delivery processed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Stock-Out processed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (_currentTransactionMode == "Supply")
+                // CHANGE "Supply" -> "Stock-In"
+                else if (_currentTransactionMode == "Stock-In")
                 {
                     if (_currentSupplyOrder == null || _currentSupplyOrder.Items.Count == 0) return;
 
@@ -1045,10 +1063,10 @@ namespace InventorySystem
                         await ProcessSingleTransaction(
                             supplyItem.Product,
                             supplyItem.Quantity,
-                            "Supply",
+                            "Stock-In", // Pass the new name here
                             _currentSupplyOrder.SupplierId);
                     }
-                    MessageBox.Show("Supply processed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Stock-In processed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -1106,7 +1124,8 @@ namespace InventorySystem
             var selectedRow = dgvCurrentSale.SelectedRows[0];
             int newQuantity;
 
-            if (_currentTransactionMode == "Deliver" && selectedRow.DataBoundItem is SaleItem saleItem)
+            // CHANGE "Deliver" -> "Stock-Out"
+            if (_currentTransactionMode == "Stock-Out" && selectedRow.DataBoundItem is SaleItem saleItem)
             {
                 string newQtyStr = Interaction.InputBox($"Enter new quantity for '{saleItem.Description}':", "Edit Quantity", saleItem.Quantity.ToString());
                 if (int.TryParse(newQtyStr, out newQuantity) && newQuantity > 0)
@@ -1120,7 +1139,8 @@ namespace InventorySystem
                     saleItem.Total = newQuantity * saleItem.UnitPrice;
                 }
             }
-            else if (_currentTransactionMode == "Supply" && selectedRow.DataBoundItem is SupplyItem supplyItem)
+            // CHANGE "Supply" -> "Stock-In"
+            else if (_currentTransactionMode == "Stock-In" && selectedRow.DataBoundItem is SupplyItem supplyItem)
             {
                 string newQtyStr = Interaction.InputBox($"Enter new quantity for '{supplyItem.Description}':", "Edit Quantity", supplyItem.Quantity.ToString());
                 if (int.TryParse(newQtyStr, out newQuantity) && newQuantity > 0)
@@ -1130,12 +1150,9 @@ namespace InventorySystem
                 }
             }
 
-            // IMPORTANT: Refresh the grid and update the UI
             dgvCurrentSale.Refresh();
             UpdateCartPanelUI();
         }
-
-        // In Form1.cs
     }
     
 }

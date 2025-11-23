@@ -22,11 +22,10 @@ namespace InventorySystem
         private static readonly Color steelBlue1 = Color.SteelBlue;
         private static readonly Color steelBlue = steelBlue1;
         private readonly Color navButtonHoverColor = steelBlue;
-        private string connectionString;
         private List<ChartDataPoint> _topProductsData;
         private List<ChartDataPoint> _dailySalesData;
         private List<ChartDataPointDecimal> _salesBreakdownData;
-
+        private const string connectionString = "Data Source=inventory.db;Version=3;";
         #region Constructor
 
         /// <summary>
@@ -39,6 +38,7 @@ namespace InventorySystem
             _loggedInUser = user;
             _repository = new DatabaseRepository();
             this.Text = $"Dashboard - Logged in as: {_loggedInUser.Username}";
+            StyleDashboardButtons();
         }
 
         #endregion
@@ -790,11 +790,11 @@ namespace InventorySystem
             {
                 // --- LOGIC FOR THE 'Type' COLUMN ---
                 case "colProdHistType":
-                    if (transaction.TransactionType == "Delivery")
+                    if (transaction.TransactionType == "Stock-Out")
                     {
                         e.CellStyle.ForeColor = Color.Red;
                     }
-                    else if (transaction.TransactionType == "Supply")
+                    else if (transaction.TransactionType == "Stock-in")
                     {
                         e.CellStyle.ForeColor = Color.Green;
                     }
@@ -804,13 +804,13 @@ namespace InventorySystem
                 case "colProdHistQty":
                     int qty = transaction.QuantityChange;
 
-                    if (transaction.TransactionType == "Delivery")
+                    if (transaction.TransactionType == "Stock-Out")
                     {
                         e.CellStyle.ForeColor = Color.Red;
                         e.Value = $"-{Math.Abs(qty)}";
                         e.FormattingApplied = true;
                     }
-                    else if (transaction.TransactionType == "Supply")
+                    else if (transaction.TransactionType == "Stock-in")
                     {
                         e.CellStyle.ForeColor = Color.Green;
                         e.Value = $"+{qty}";
@@ -820,7 +820,7 @@ namespace InventorySystem
 
                 // --- THIS IS THE CORRECTED LOGIC THAT WAS MISSING ---
                 case "colProdHistSource":
-                    if (transaction.TransactionType == "Supply")
+                    if (transaction.TransactionType == "Stock-in")
                     {
                         // For a supply, the source is the supplier
                         e.Value = transaction.SupplierName;
@@ -954,8 +954,8 @@ namespace InventorySystem
             // Color the 'Type' column
             if (dgvTodaysTransactions.Columns[e.ColumnIndex].DataPropertyName == "TransactionType")
             {
-                if (transaction.TransactionType == "Delivery") e.CellStyle.ForeColor = Color.Red;
-                if (transaction.TransactionType == "Supply") e.CellStyle.ForeColor = Color.Green;
+                if (transaction.TransactionType == "Stock-Out") e.CellStyle.ForeColor = Color.Red;
+                if (transaction.TransactionType == "Stock-in") e.CellStyle.ForeColor = Color.Green;
             }
 
             // Format the 'Value' column
@@ -977,5 +977,52 @@ namespace InventorySystem
             // Optional: Refresh dashboard data after the form closes.
             LoadDashboardData();
         }
+        private void StyleDashboardButtons()
+        {
+            // =========================================================
+            // 1. BUTTON: NEW STOCK-IN (Green)
+            // =========================================================
+            btnQuickSupply.Text = "New Stock-In"; // Force the new text
+
+            // "Bootstrap Success Green" (RGB: 40, 167, 69)
+            btnQuickSupply.BackColor = Color.FromArgb(40, 167, 69);
+            btnQuickSupply.ForeColor = Color.White;
+
+            // Typography
+            btnQuickSupply.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+
+            // Flat Style (Removes the 3D border)
+            btnQuickSupply.FlatStyle = FlatStyle.Flat;
+            btnQuickSupply.FlatAppearance.BorderSize = 0;
+
+            // Interaction
+            btnQuickSupply.Cursor = Cursors.Hand;
+            // Darker Green when hovering (RGB: 33, 136, 56)
+            btnQuickSupply.FlatAppearance.MouseOverBackColor = Color.FromArgb(33, 136, 56);
+
+
+            // =========================================================
+            // 2. BUTTON: NEW STOCK-OUT (Red)
+            // =========================================================
+            btnQuickDelivery.Text = "New Stock-Out"; // Force the new text
+
+            // "Bootstrap Danger Red" (RGB: 220, 53, 69)
+            btnQuickDelivery.BackColor = Color.FromArgb(220, 53, 69);
+            btnQuickDelivery.ForeColor = Color.White;
+
+            // Typography
+            btnQuickDelivery.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+
+            // Flat Style
+            btnQuickDelivery.FlatStyle = FlatStyle.Flat;
+            btnQuickDelivery.FlatAppearance.BorderSize = 0;
+
+            // Interaction
+            btnQuickDelivery.Cursor = Cursors.Hand;
+            // Darker Red when hovering (RGB: 200, 35, 51)
+            btnQuickDelivery.FlatAppearance.MouseOverBackColor = Color.FromArgb(200, 35, 51);
+        }
+
     }
+
 }
