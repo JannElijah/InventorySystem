@@ -4,9 +4,9 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 using System.Linq;
-using InventoryManagementSystem; // Your project's namespace
+using InventoryManagementSystem;
 
-namespace InventorySystem // Or your project's namespace
+namespace InventorySystem
 {
     public partial class ReportsForm : Form
     {
@@ -18,13 +18,12 @@ namespace InventorySystem // Or your project's namespace
         private float[] _columnWidths;
         private int _currentRowIndex;
 
-        // Master lists to hold the complete, unfiltered data for each report
+        // Master lists
         private List<InventoryReportItem> _masterInventoryList;
         private List<Transaction> _masterTransactionList;
 
         public static string Format1 => Format;
 
-        // --- CONSTRUCTOR & FORM EVENTS ---
         public ReportsForm(DatabaseRepository repository)
         {
             InitializeComponent();
@@ -33,43 +32,50 @@ namespace InventorySystem // Or your project's namespace
             _repository = repository;
         }
 
-        // In ReportsForm.cs
-
         private void ReportsForm_Load(object sender, EventArgs e)
         {
-            // Set up initial state with a wide default date range
+            // Set up initial state
             dtpEndDate.Value = DateTime.Now;
             dtpStartDate.Value = DateTime.Now.AddMonths(-1);
 
-            // Load ALL data into the master lists AND populate the grids initially
+            // Load data
             LoadInventoryStatusReport();
-            LoadTransactionHistoryReport(); // This now handles populating the grid
+            LoadTransactionHistoryReport();
 
-            // Populate the filter controls with data
+            // Populate filters
             PopulateInventoryFilters();
             PopulateTransactionTypeFilter();
 
-            // Generate the initial Sales Report view using the default date range
+            // Generate initial Sales Report
             GenerateSalesReport();
 
-            // Set the initial visibility of the footer controls
+            // Update UI
             UpdateFooterControls();
 
-            // The call to ApplyTransactionFilters() has been REMOVED from here.
+            // === FIX 1: Manually Wire up the Date Events to the New Logic ===
+            // We do this here to ensure they handle BOTH tabs correctly
+            dtpStartDate.ValueChanged += HandleDateChange;
+            dtpEndDate.ValueChanged += HandleDateChange;
         }
 
-        // --- AFTER ---
+        // === FIX 1: Central Date Handler ===
+        private void HandleDateChange(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tpSalesReport)
+            {
+                GenerateSalesReport();
+            }
+            else if (tabControl1.SelectedTab == tabPageTransactionHistory)
+            {
+                ApplyTransactionFilters();
+            }
+        }
+
         private void LoadTransactionHistoryReport()
         {
-            // The date variables were not being used, so they have been removed.
             _masterTransactionList = _repository.GetAllTransactions();
-
-            // *** THE FIX IS HERE ***
-            // Bind the COMPLETE, unfiltered master list to the grid on initial load.
             dgvTransactionHistory.DataSource = _masterTransactionList;
         }
-
-        // --- DATA LOADING & FILTERING METHODS ---
 
         private void LoadInventoryStatusReport()
         {
@@ -85,7 +91,6 @@ namespace InventorySystem // Or your project's namespace
                 TotalValue = p.StockQuantity * p.PurchaseCost
             }).ToList();
 
-            // Initially, apply filters to show all data, which also populates the grid
             ApplyInventoryFilters();
         }
 
@@ -137,34 +142,27 @@ namespace InventorySystem // Or your project's namespace
 
         private void ApplyTransactionFilters()
         {
-            // Safety check: If the master list hasn't been loaded yet, do nothing.
             if (_masterTransactionList == null) return;
 
-            // Always start with the complete, unfiltered master list of all transactions.
             IEnumerable<Transaction> filteredData = _masterTransactionList;
 
-            // 1. Filter by the selected Date Range from the UI.
             DateTime startDate = dtpStartDate.Value.Date;
-            DateTime endDate = dtpEndDate.Value.Date.AddDays(1).AddTicks(-1); // End of the selected day
+            DateTime endDate = dtpEndDate.Value.Date.AddDays(1).AddTicks(-1);
             filteredData = filteredData.Where(t => t.TransactionDate >= startDate && t.TransactionDate <= endDate);
 
-            // 2. Filter by the selected Transaction Type (Supply/Delivery).
             if (cmbTransactionType.SelectedItem != null && cmbTransactionType.SelectedItem.ToString() != "All")
             {
                 filteredData = filteredData.Where(t => t.TransactionType == cmbTransactionType.SelectedItem.ToString());
             }
 
-            // 3. Filter by the Product Search text box.
             string searchText = txtTransactionSearch.Text.Trim();
             if (!string.IsNullOrEmpty(searchText))
             {
-                // This assumes your 'Transaction' model has a 'ProductDescription' property
                 filteredData = filteredData.Where(t =>
                     t.ProductDescription?.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0
                 );
             }
 
-            // Finally, update the grid's data source with the new, filtered list.
             dgvTransactionHistory.DataSource = filteredData.ToList();
         }
 
@@ -176,24 +174,15 @@ namespace InventorySystem // Or your project's namespace
             this.Close();
         }
 
-        // This button is now ONLY for the Sales & Profitability "Generate" action
-        // In ReportsForm.cs
-        private void BtnFilterTransactions_Click(object sender, EventArgs e)
-        {
-            // If on the Transaction History tab, just re-apply the filters
-            if (tabControl1.SelectedTab == tabPageTransactionHistory)
-            {
-                ApplyTransactionFilters();
-            }
-            else if (tabControl1.SelectedTab == tpSalesReport)
-            {
-                GenerateSalesReport();
-            }
-        }
+        // NOTE: The BtnFilterTransactions_Click method has been removed entirely.
 
         private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateFooterControls();
+
+            // Optional: Immediately refresh the data when switching tabs to match the dates
+            if (tabControl1.SelectedTab == tpSalesReport) GenerateSalesReport();
+            else if (tabControl1.SelectedTab == tabPageTransactionHistory) ApplyTransactionFilters();
         }
 
         // Event handlers for INVENTORY tab
@@ -202,14 +191,11 @@ namespace InventorySystem // Or your project's namespace
         private void TxtInventorySearch_TextChanged(object sender, EventArgs e) => ApplyInventoryFilters();
 
         // Event handlers for TRANSACTION HISTORY tab
-        private void DtpStartDate_ValueChanged(object sender, EventArgs e) => ApplyTransactionFilters();
-        private void DtpEndDate_ValueChanged(object sender, EventArgs e) => ApplyTransactionFilters();
+        // Note: DtpStartDate/EndDate are now handled by HandleDateChange in Form_Load
         private void CmbTransactionType_SelectedIndexChanged(object sender, EventArgs e) => ApplyTransactionFilters();
         private void TxtTransactionSearch_TextChanged(object sender, EventArgs e) => ApplyTransactionFilters();
 
         // --- FINANCIAL & PRINTING LOGIC ---
-
-
 
         private void GenerateSalesReport()
         {
@@ -217,17 +203,37 @@ namespace InventorySystem // Or your project's namespace
             DateTime endDate = dtpEndDate.Value.Date.AddDays(1).AddTicks(-1);
             SalesReportData reportData = _repository.GetSalesReport(startDate, endDate);
 
-            lblTotalRevenue.Text = reportData.TotalRevenue.ToString("C");
-            lblCostOfGoodsSold.Text = reportData.CostOfGoodsSold.ToString("C");
-            lblGrossProfit.Text = reportData.GrossProfit.ToString("C");
+            // === FIX 2: FORCE POSITIVE NUMBERS USING MATH.ABS ===
 
-            decimal margin = (reportData.TotalRevenue > 0) ? (reportData.GrossProfit / reportData.TotalRevenue) : 0;
+            // Revenue and COGS
+            decimal revenue = Math.Abs(reportData.TotalRevenue);
+            decimal cogs = Math.Abs(reportData.CostOfGoodsSold);
+            decimal grossProfit = revenue - cogs;
+
+            lblTotalRevenue.Text = revenue.ToString("C");
+            lblCostOfGoodsSold.Text = cogs.ToString("C");
+            lblGrossProfit.Text = grossProfit.ToString("C");
+
+            // Margins
+            decimal margin = (revenue > 0) ? (grossProfit / revenue) : 0;
             lblGrossProfitMargin.Text = margin.ToString("P");
-            lblTotalTransactions.Text = reportData.TotalTransactions.ToString();
-            lblTotalItemsSold.Text = reportData.TotalItemsSold.ToString();
 
-            lblBestSellingProduct.Text = !string.IsNullOrEmpty(reportData.BestSellingProduct.Name) ? $"{reportData.BestSellingProduct.Name} ({reportData.BestSellingProduct.Value} units)" : "N/A (0 units)";
-            lblMostProfitableProduct.Text = !string.IsNullOrEmpty(reportData.MostProfitableProduct.Name) ? $"{reportData.MostProfitableProduct.Name} ({reportData.MostProfitableProduct.Value:C})" : "N/A ($0.00)";
+            // Counts
+            lblTotalTransactions.Text = reportData.TotalTransactions.ToString();
+            lblTotalItemsSold.Text = Math.Abs(reportData.TotalItemsSold).ToString(); // Fix negative item count
+
+            // Best Seller (Fix negative units)
+            int bestSellerUnits = (int)Math.Abs(reportData.BestSellingProduct.Value);
+            lblBestSellingProduct.Text = !string.IsNullOrEmpty(reportData.BestSellingProduct.Name)
+                ? $"{reportData.BestSellingProduct.Name} ({bestSellerUnits} units)"
+                : "N/A (0 units)";
+
+            // Most Profitable (Fix negative value if calculated from negative quantity)
+            decimal profitableVal = Math.Abs(reportData.MostProfitableProduct.Value);
+            lblMostProfitableProduct.Text = !string.IsNullOrEmpty(reportData.MostProfitableProduct.Name)
+                ? $"{reportData.MostProfitableProduct.Name} ({profitableVal:C})"
+                : "N/A ($0.00)";
+
             lblReportPeriod.Text = $"Reporting for {startDate.ToShortDateString()} to {endDate.ToShortDateString()}";
         }
 
@@ -270,7 +276,6 @@ namespace InventorySystem // Or your project's namespace
             }
             else
             {
-                // This assumes your Transaction grid has these columns in order
                 _columnWidths = new float[] { 0.08f, 0.08f, 0.12f, 0.22f, 0.08f, 0.08f, 0.08f, 0.08f, 0.10f, 0.08f };
             }
 
@@ -399,13 +404,12 @@ namespace InventorySystem // Or your project's namespace
             e.HasMorePages = false;
         }
 
-        // --- HELPER & FORMATTING METHODS ---
-
         private void UpdateFooterControls()
         {
             dtpStartDate.Visible = false;
             dtpEndDate.Visible = false;
-            btnFilterTransactions.Visible = false;
+            // The button logic has been removed from here
+
             lblInventoryBrand.Visible = false;
             cmbInventoryBrand.Visible = false;
             lblInventoryType.Visible = false;
@@ -440,8 +444,7 @@ namespace InventorySystem // Or your project's namespace
             {
                 dtpStartDate.Visible = true;
                 dtpEndDate.Visible = true;
-                btnFilterTransactions.Visible = true;
-                btnFilterTransactions.Text = "Generate";
+                // No button needed
             }
         }
 
