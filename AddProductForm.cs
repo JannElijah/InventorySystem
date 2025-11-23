@@ -93,6 +93,10 @@ namespace InventorySystem
             txtVolume.Text = _productToEdit.Volume;
             txtType.Text = _productToEdit.Type;
             nudPurchaseCost.Value = _productToEdit.PurchaseCost;
+
+            // === FIX: Load the Selling Price ===
+            nudSellingPrice.Value = _productToEdit.SellingPrice;
+
             numLowStockThreshold.Value = _productToEdit.LowStockThreshold;
 
             // Note: There should be no control to edit stock quantity on this main panel.
@@ -142,6 +146,10 @@ namespace InventorySystem
                 _productToEdit.Volume = txtVolume.Text;
                 _productToEdit.Type = txtType.Text;
                 _productToEdit.PurchaseCost = nudPurchaseCost.Value;
+
+                // === FIX: Save the Selling Price ===
+                _productToEdit.SellingPrice = nudSellingPrice.Value;
+
                 _productToEdit.LowStockThreshold = (int)numLowStockThreshold.Value;
 
                 if (_isEditMode)
@@ -163,6 +171,8 @@ namespace InventorySystem
                 }
                 else // "Add" mode
                 {
+                    // Even when adding new products, we need to save the selling price
+                    _productToEdit.StockQuantity = 0; // Default for new products
                     _repository.AddProduct(_productToEdit);
                 }
 

@@ -87,6 +87,9 @@ namespace InventorySystem
             // All column definitions and formatting are now correctly handled by the visual designer.
             // This method's only job now is to connect the data to the grid.
             dgvInventory.DataSource = _allProducts;
+            dgvInventory.ReadOnly = true;
+            dgvInventory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvInventory.MultiSelect = true;
         }
         /// <summary>
         /// Populates the Brand and Type ComboBoxes with distinct values from the product list.
@@ -433,8 +436,14 @@ namespace InventorySystem
         // This handles gathering the CHARACTERS from the scanner
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // FIX: Only allow normal typing if the cursor is specifically in the Search Box.
+            // If the "ActiveControl" is the Grid (or a cell inside it), we want to treat it as a scan.
+            if (this.ActiveControl == txtSearch) return;
+
+            // Ignore the Enter key here (handled in ProcessCmdKey)
             if (e.KeyChar == (char)Keys.Enter) return;
 
+            // Reset buffer if too much time passed (manual typing vs fast scan)
             if ((DateTime.Now - _lastKeystrokeTime).TotalMilliseconds > 100)
             {
                 _barcodeBuffer.Clear();
@@ -443,7 +452,7 @@ namespace InventorySystem
             _barcodeBuffer.Append(e.KeyChar);
             _lastKeystrokeTime = DateTime.Now;
 
-            // This stops the characters from being typed into the grid
+            // Stop the character from being typed into the Grid
             e.Handled = true;
         }
 
@@ -891,10 +900,9 @@ namespace InventorySystem
         // PASTE THIS ENTIRE NEW METHOD into Form1.cs
         private void SetupCartGrid()
         {
-            // Clear any existing columns, just in case.
             dgvCurrentSale.Columns.Clear();
 
-            // Column for Product Description
+            // Standard columns...
             var colDescription = new DataGridViewTextBoxColumn
             {
                 Name = "colDescription",
@@ -904,7 +912,6 @@ namespace InventorySystem
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
             };
 
-            // Column for Quantity (This one can be editable)
             var colQuantity = new DataGridViewTextBoxColumn
             {
                 Name = "colQuantity",
@@ -914,20 +921,20 @@ namespace InventorySystem
                 Width = 70
             };
 
-            // Column for Unit Price / Purchase Cost
+            // === FIX 5: Force Peso Formatting for Unit Price ===
             var colUnitPrice = new DataGridViewTextBoxColumn
             {
-                Name = "colUnitPrice", // The key name we will use to find it later
+                Name = "colUnitPrice",
                 HeaderText = "Unit Price",
-                DataPropertyName = "UnitPrice", // Default to the Sale property
+                DataPropertyName = "UnitPrice",
                 ReadOnly = true,
                 Width = 100
             };
-            colUnitPrice.DefaultCellStyle.Format = "c"; // Currency format
+            colUnitPrice.DefaultCellStyle.FormatProvider = new System.Globalization.CultureInfo("en-PH");
+            colUnitPrice.DefaultCellStyle.Format = "c";
             colUnitPrice.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-
-            // Column for the Line Total
+            // === FIX 5: Force Peso Formatting for Total ===
             var colTotal = new DataGridViewTextBoxColumn
             {
                 Name = "colTotal",
@@ -936,16 +943,13 @@ namespace InventorySystem
                 ReadOnly = true,
                 Width = 120
             };
-            colTotal.DefaultCellStyle.Format = "c"; // Currency format
+            colTotal.DefaultCellStyle.FormatProvider = new System.Globalization.CultureInfo("en-PH");
+            colTotal.DefaultCellStyle.Format = "c";
             colTotal.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-            // Add the columns to the grid
             dgvCurrentSale.Columns.AddRange(new DataGridViewColumn[] {
-        colDescription,
-        colQuantity,
-        colUnitPrice,
-        colTotal
-    });
+            colDescription, colQuantity, colUnitPrice, colTotal
+        });
         }
         // The signature is changed from "async void" to "async Task<Transaction>"
         private async Task<Transaction> ProcessSingleTransaction(Product product, int quantity, string transactionType, int? supplierId)
@@ -1013,41 +1017,29 @@ namespace InventorySystem
         private async void btnConfirmTransaction_Click(object sender, EventArgs e)
         {
             btnConfirmTransaction.Enabled = false;
-            this.Cursor = Cursors.WaitCursor;
+            this.Cursor = Cursors.WaitCursor; // Visual feedback that system is working
 
             try
             {
                 if (_currentTransactionMode == "Deliver")
                 {
-                    #region Delivery Logic (The Proven Fix)
                     if (_currentSale == null || _currentSale.Items.Count == 0)
                     {
-                        MessageBox.Show("There are no items to process for delivery.", "Empty Cart", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                    if (string.IsNullOrWhiteSpace(_currentSale.CustomerName))
-                    {
-                        MessageBox.Show("A customer name is required for delivery.", "Customer Missing", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Cart is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
 
-                    lblStatus.Text = "Processing delivery...";
-
-                    // This single method call handles the entire write process correctly.
+                    // === LOGIC === 
+                    // Because we enabled WAL in DatabaseRepository, this call
+                    // will no longer lock up the Dashboard reading in the background.
                     _repository.ProcessCompleteSale(_currentSale);
 
-                    MessageBox.Show("Delivery processed and recorded successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    #endregion
+                    MessageBox.Show("Delivery processed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (_currentTransactionMode == "Supply")
                 {
-                    #region Supply Logic
-                    if (_currentSupplyOrder == null || _currentSupplyOrder.Items.Count == 0)
-                    {
-                        MessageBox.Show("There are no items to process for this supply.", "Empty Cart", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return;
-                    }
-                    lblStatus.Text = "Processing supply order...";
+                    if (_currentSupplyOrder == null || _currentSupplyOrder.Items.Count == 0) return;
+
                     foreach (var supplyItem in _currentSupplyOrder.Items)
                     {
                         await ProcessSingleTransaction(
@@ -1056,13 +1048,12 @@ namespace InventorySystem
                             "Supply",
                             _currentSupplyOrder.SupplierId);
                     }
-                    MessageBox.Show("Supply order processed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    #endregion
+                    MessageBox.Show("Supply processed successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("A critical error occurred while processing the transaction: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error processing transaction: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

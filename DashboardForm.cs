@@ -246,7 +246,11 @@ namespace InventorySystem
         /// </summary>
         private void DashboardForm_Activated(object sender, EventArgs e)
         {
-            LoadDashboardData();
+            // Only load if the form is actually visible and not minimized
+            if (this.WindowState != FormWindowState.Minimized && this.Visible)
+            {
+                LoadDashboardData();
+            }
         }
 
         /// <summary>
@@ -596,27 +600,44 @@ namespace InventorySystem
 
         private void DashboardForm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // If the key is not the Enter key, add it to our buffer.
+
+            Control focusedControl = GetDeepActiveControl(this);
+
+            if (focusedControl is TextBox) return;
+
+
             if (e.KeyChar != (char)Keys.Enter)
             {
                 _barcodeBuffer.Append(e.KeyChar);
             }
-
-            // THIS IS THE CRITICAL FIX:
-            // We tell the system that we have handled this key event.
-            // This stops the character from being passed along to the focused control (the DataGridView).
-            e.Handled = true;
+            e.Handled = true; 
+        }
+        private Control GetDeepActiveControl(Control parent)
+        {
+            if (parent is ContainerControl container && container.ActiveControl != null)
+            {
+                return GetDeepActiveControl(container.ActiveControl);
+            }
+            return parent;
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            // Check if the Enter key was pressed and if we have something in our buffer
+            // 1. Find out what is REALLY focused
+            Control focusedControl = GetDeepActiveControl(this);
+
+            // 2. If typing in a textbox, let the Enter key work normally (don't treat as scan complete)
+            if (focusedControl is TextBox)
+            {
+                return base.ProcessCmdKey(ref msg, keyData);
+            }
+
+            // 3. Standard Scanner Logic
             if (keyData == Keys.Enter && _barcodeBuffer.Length > 0)
             {
-                // A scan has just completed on the dashboard.
                 HandleDashboardBarcodeScan();
-                return true; // This is critical: it "eats" the key press and stops the grid from moving down.
+                return true;
             }
-            return base.ProcessCmdKey(ref msg, keyData); // Allow normal processing for all other keys.
+            return base.ProcessCmdKey(ref msg, keyData);
         }
         private void HandleDashboardBarcodeScan()
         {

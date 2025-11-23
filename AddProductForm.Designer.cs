@@ -62,11 +62,14 @@
             this.lblCurrentStockQuantity = new System.Windows.Forms.Label();
             this.btnBackToDetails = new System.Windows.Forms.Button();
             this.lblEditStockQuantity = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.nudSellingPrice = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.nudPurchaseCost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numLowStockThreshold)).BeginInit();
             this.pnlProductDetails.SuspendLayout();
             this.pnlStockAdjustment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numNewStock)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSellingPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -181,7 +184,7 @@
             this.nudPurchaseCost.Location = new System.Drawing.Point(151, 328);
             this.nudPurchaseCost.Margin = new System.Windows.Forms.Padding(4);
             this.nudPurchaseCost.Maximum = new decimal(new int[] {
-            100000,
+            999999,
             0,
             0,
             0});
@@ -193,7 +196,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 377);
+            this.label7.Location = new System.Drawing.Point(15, 416);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(131, 17);
@@ -202,7 +205,7 @@
             // 
             // numLowStockThreshold
             // 
-            this.numLowStockThreshold.Location = new System.Drawing.Point(151, 377);
+            this.numLowStockThreshold.Location = new System.Drawing.Point(150, 408);
             this.numLowStockThreshold.Margin = new System.Windows.Forms.Padding(4);
             this.numLowStockThreshold.Maximum = new decimal(new int[] {
             10000,
@@ -239,6 +242,8 @@
             // 
             // pnlProductDetails
             // 
+            this.pnlProductDetails.Controls.Add(this.nudSellingPrice);
+            this.pnlProductDetails.Controls.Add(this.label9);
             this.pnlProductDetails.Controls.Add(this.label8);
             this.pnlProductDetails.Controls.Add(this.btnEditStockQuantity);
             this.pnlProductDetails.Controls.Add(this.btnCancel);
@@ -446,6 +451,29 @@
             this.lblEditStockQuantity.TabIndex = 1;
             this.lblEditStockQuantity.Text = " Edit Stock Quantity";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(18, 368);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(78, 17);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Selling Price";
+            // 
+            // nudSellingPrice
+            // 
+            this.nudSellingPrice.DecimalPlaces = 2;
+            this.nudSellingPrice.Location = new System.Drawing.Point(147, 366);
+            this.nudSellingPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.nudSellingPrice.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.nudSellingPrice.Name = "nudSellingPrice";
+            this.nudSellingPrice.Size = new System.Drawing.Size(120, 25);
+            this.nudSellingPrice.TabIndex = 20;
+            // 
             // AddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
@@ -468,6 +496,7 @@
             this.pnlStockAdjustment.ResumeLayout(false);
             this.pnlStockAdjustment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numNewStock)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSellingPrice)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -506,5 +535,7 @@
         private System.Windows.Forms.ComboBox cmbAdjustmentReason;
         private System.Windows.Forms.Button btnApplyStockChange;
         private System.Windows.Forms.Label lblReasons;
+        private System.Windows.Forms.NumericUpDown nudSellingPrice;
+        private System.Windows.Forms.Label label9;
     }
 }

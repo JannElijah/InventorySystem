@@ -4,12 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Windows.Forms;
+using System.Threading;
 
 public class DatabaseRepository
 {
     // The connection string now uses a relative path.
     // This allows the application to find the database file in its own folder, making it portable.
-    private readonly string connectionString = "Data Source=inventory.db; Version=3;";
+    private readonly string connectionString = "Data Source=inventory.db; Version=3; Busy Timeout=5000;";
 
     #region User Management
 
@@ -136,6 +137,33 @@ public class DatabaseRepository
         }
         return users;
     }
+
+    public DatabaseRepository()
+    {
+        InitializeDatabase();
+    }
+
+    private void InitializeDatabase()
+    {
+        try
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    // === FIX 2: Ensure WAL Mode is on ===
+                    command.CommandText = "PRAGMA journal_mode=WAL;";
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+        catch
+        {
+            // Ignore initialization errors if the DB is already in use
+        }
+    }
+
 
     /// <summary>
     /// Updates a user's details, including their password hash.
@@ -435,16 +463,16 @@ public class DatabaseRepository
         using (var connection = new SQLiteConnection(connectionString))
         {
             connection.Open();
-            // UPDATED: Added DateModified to the SET clause.
+            // === FIX 3: Ensure SellingPrice is included in the SQL Update String ===
             string sql = @"UPDATE Products SET
                         Barcode = @Barcode, PartNumber = @PartNumber, Brand = @Brand, Description = @Description, 
                         Volume = @Volume, Type = @Type, Application = @Application, PurchaseCost = @PurchaseCost, 
                         SellingPrice = @SellingPrice, StockQuantity = @StockQuantity, Notes = @Notes, 
                         LowStockThreshold = @LowStockThreshold, DateModified = @DateModified
                       WHERE ProductID = @ProductID";
+
             using (var command = new SQLiteCommand(sql, connection))
             {
-                // --- Existing Parameters ---
                 command.Parameters.AddWithValue("@Barcode", product.Barcode);
                 command.Parameters.AddWithValue("@PartNumber", product.PartNumber);
                 command.Parameters.AddWithValue("@Brand", product.Brand);
@@ -453,20 +481,16 @@ public class DatabaseRepository
                 command.Parameters.AddWithValue("@Type", product.Type);
                 command.Parameters.AddWithValue("@Application", product.Application);
                 command.Parameters.AddWithValue("@PurchaseCost", product.PurchaseCost);
-                command.Parameters.AddWithValue("@SellingPrice", product.SellingPrice);
+                command.Parameters.AddWithValue("@SellingPrice", product.SellingPrice); // Critical Parameter
                 command.Parameters.AddWithValue("@StockQuantity", product.StockQuantity);
                 command.Parameters.AddWithValue("@Notes", product.Notes);
                 command.Parameters.AddWithValue("@LowStockThreshold", product.LowStockThreshold);
                 command.Parameters.AddWithValue("@ProductID", product.ProductID);
-
-                // --- NEW: Add the DateModified parameter ---
                 command.Parameters.AddWithValue("@DateModified", DateTime.Now.ToString("o"));
 
                 command.ExecuteNonQuery();
             }
         }
-
-        // After the update is complete, check if a notification needs to be created.
         CheckStockLevelAndCreateNotification(product.ProductID, product.StockQuantity);
     }
     /// <summary>
@@ -488,42 +512,41 @@ public class DatabaseRepository
     {
         var transactionViews = new List<DashboardTransactionView>();
 
+        // === FIX 2: Updated SQL to calculate Total Value (Price * Quantity) ===
+        // We changed 'si.UnitPrice' to '(si.UnitPrice * si.Quantity)' for deliveries.
         string sql = @"
-    SELECT
-        t.TransactionID,
-        t.ProductID,
-        p.Barcode,
-        p.Description AS ProductDescription,
-        t.TransactionType,
-        CASE
-            WHEN t.TransactionType = 'Delivery' THEN si.UnitPrice
-            ELSE p.PurchaseCost
-        END AS Price,
-        s.DeliverTo AS CustomerName,
-        t.StockBefore,
-        t.StockAfter,
-        t.TransactionDate,
-        t.SupplierID,
-        sup.Name AS SupplierName,
-
-        -- === FIX: ADD THESE TWO COLUMNS TO THE QUERY ===
-        t.QuantityChange,
-        p.PurchaseCost
-
-    FROM
-        Transactions t
-    INNER JOIN
-        Products p ON t.ProductID = p.ProductID
-    LEFT JOIN
-        Suppliers sup ON t.SupplierID = sup.SupplierID
-    LEFT JOIN
-        SaleItems si ON t.SaleItemID = si.SaleItemID
-    LEFT JOIN
-        Sales s ON si.SaleID = s.SaleID
-    ORDER BY
-        t.TransactionID DESC
-    LIMIT 50;
-";
+        SELECT
+            t.TransactionID,
+            t.ProductID,
+            p.Barcode,
+            p.Description AS ProductDescription,
+            t.TransactionType,
+            CASE
+                WHEN t.TransactionType = 'Delivery' THEN (si.UnitPrice * si.Quantity)
+                ELSE (p.PurchaseCost * ABS(t.QuantityChange))
+            END AS Price,
+            s.DeliverTo AS CustomerName,
+            t.StockBefore,
+            t.StockAfter,
+            t.TransactionDate,
+            t.SupplierID,
+            sup.Name AS SupplierName,
+            t.QuantityChange,
+            p.PurchaseCost
+        FROM
+            Transactions t
+        INNER JOIN
+            Products p ON t.ProductID = p.ProductID
+        LEFT JOIN
+            Suppliers sup ON t.SupplierID = sup.SupplierID
+        LEFT JOIN
+            SaleItems si ON t.SaleItemID = si.SaleItemID
+        LEFT JOIN
+            Sales s ON si.SaleID = s.SaleID
+        ORDER BY
+            t.TransactionID DESC
+        LIMIT 50;
+        ";
 
         using (var connection = new SQLiteConnection(connectionString))
         {
@@ -548,8 +571,6 @@ public class DatabaseRepository
                             TransactionDate = Convert.ToDateTime(reader["TransactionDate"]),
                             SupplierID = reader["SupplierID"] is DBNull ? (int?)null : Convert.ToInt32(reader["SupplierID"]),
                             SupplierName = reader["SupplierName"] is DBNull ? "" : reader["SupplierName"].ToString(),
-
-                            // === FIX: MAP THE NEWLY ADDED DATA TO THE OBJECT ===
                             QuantityChange = Convert.ToInt32(reader["QuantityChange"]),
                             PurchaseCost = reader["PurchaseCost"] is DBNull ? 0 : Convert.ToDecimal(reader["PurchaseCost"])
                         };
@@ -569,72 +590,103 @@ public class DatabaseRepository
 
     public void ProcessCompleteSale(Sale sale)
     {
-        using (var connection = new SQLiteConnection(connectionString))
+        // 1. Force clear any "stuck" connections from the dashboard or background
+        SQLiteConnection.ClearAllPools();
+
+        // 2. Force the system to clean up memory (Releases file locks)
+        GC.Collect();
+        GC.WaitForPendingFinalizers();
+
+        const int MaxRetries = 5; // Try 5 times
+        const int DelayMs = 200;  // Wait 0.2 seconds between tries
+
+        for (int i = 0; i < MaxRetries; i++)
         {
-            connection.Open();
-            using (var transaction = connection.BeginTransaction())
+            try
             {
-                try
+                using (var connection = new SQLiteConnection(connectionString))
                 {
-                    // Step 1: Save the Sale, using the correct column name 'DeliverTo'.
-                    // --- FIX #1: Corrected column name from 'CustomerName' to 'DeliverTo' ---
-                    string saleSql = "INSERT INTO Sales (DeliverTo, SaleDate) VALUES (@CustomerName, @SaleDate); SELECT last_insert_rowid();";
-                    int newSaleId;
-                    using (var saleCommand = new SQLiteCommand(saleSql, connection))
+                    connection.Open();
+                    using (var transaction = connection.BeginTransaction())
                     {
-                        saleCommand.Parameters.AddWithValue("@CustomerName", sale.CustomerName);
-                        saleCommand.Parameters.AddWithValue("@SaleDate", sale.SaleDate);
-                        newSaleId = Convert.ToInt32(saleCommand.ExecuteScalar());
-                    }
-
-                    foreach (var saleItem in sale.Items)
-                    {
-                        // Step 2: Save the SaleItem, now including the 'LineTotal'.
-                        // --- FIX #2: Added LineTotal to the INSERT statement and parameters ---
-                        string saleItemSql = "INSERT INTO SaleItems (SaleID, ProductID, Quantity, UnitPrice, LineTotal) VALUES (@SaleID, @ProductID, @Quantity, @UnitPrice, @LineTotal); SELECT last_insert_rowid();";
-                        int newSaleItemId;
-                        using (var saleItemCommand = new SQLiteCommand(saleItemSql, connection))
+                        try
                         {
-                            saleItemCommand.Parameters.AddWithValue("@SaleID", newSaleId);
-                            saleItemCommand.Parameters.AddWithValue("@ProductID", saleItem.ProductID);
-                            saleItemCommand.Parameters.AddWithValue("@Quantity", saleItem.Quantity);
-                            saleItemCommand.Parameters.AddWithValue("@UnitPrice", saleItem.UnitPrice);
-                            saleItemCommand.Parameters.AddWithValue("@LineTotal", saleItem.Total); // This line was added
-                            newSaleItemId = Convert.ToInt32(saleItemCommand.ExecuteScalar());
+                            // --- Step 1: Save the Sale Header ---
+                            string saleSql = "INSERT INTO Sales (DeliverTo, SaleDate) VALUES (@CustomerName, @SaleDate); SELECT last_insert_rowid();";
+                            int newSaleId;
+                            using (var saleCommand = new SQLiteCommand(saleSql, connection))
+                            {
+                                saleCommand.Parameters.AddWithValue("@CustomerName", sale.CustomerName);
+                                saleCommand.Parameters.AddWithValue("@SaleDate", sale.SaleDate);
+                                newSaleId = Convert.ToInt32(saleCommand.ExecuteScalar());
+                            }
+
+                            // --- Step 2: Loop through Items ---
+                            foreach (var saleItem in sale.Items)
+                            {
+                                // A. Add Sale Item
+                                string saleItemSql = "INSERT INTO SaleItems (SaleID, ProductID, Quantity, UnitPrice, LineTotal) VALUES (@SaleID, @ProductID, @Quantity, @UnitPrice, @LineTotal); SELECT last_insert_rowid();";
+                                int newSaleItemId;
+                                using (var saleItemCommand = new SQLiteCommand(saleItemSql, connection))
+                                {
+                                    saleItemCommand.Parameters.AddWithValue("@SaleID", newSaleId);
+                                    saleItemCommand.Parameters.AddWithValue("@ProductID", saleItem.ProductID);
+                                    saleItemCommand.Parameters.AddWithValue("@Quantity", saleItem.Quantity);
+                                    saleItemCommand.Parameters.AddWithValue("@UnitPrice", saleItem.UnitPrice);
+                                    saleItemCommand.Parameters.AddWithValue("@LineTotal", saleItem.Total);
+                                    newSaleItemId = Convert.ToInt32(saleItemCommand.ExecuteScalar());
+                                }
+
+                                // B. Log Transaction
+                                int stockBefore = saleItem.Product.StockQuantity;
+                                int stockAfter = stockBefore - saleItem.Quantity;
+                                int quantityChange = -saleItem.Quantity;
+
+                                string transactionSql = @"INSERT INTO Transactions (ProductID, TransactionType, QuantityChange, StockBefore, StockAfter, TransactionDate, SaleItemID) VALUES (@ProductID, 'Delivery', @QuantityChange, @StockBefore, @StockAfter, @TransactionDate, @SaleItemID)";
+                                using (var transactionCommand = new SQLiteCommand(transactionSql, connection))
+                                {
+                                    transactionCommand.Parameters.AddWithValue("@ProductID", saleItem.ProductID);
+                                    transactionCommand.Parameters.AddWithValue("@QuantityChange", quantityChange);
+                                    transactionCommand.Parameters.AddWithValue("@StockBefore", stockBefore);
+                                    transactionCommand.Parameters.AddWithValue("@StockAfter", stockAfter);
+                                    transactionCommand.Parameters.AddWithValue("@TransactionDate", DateTime.Now);
+                                    transactionCommand.Parameters.AddWithValue("@SaleItemID", newSaleItemId);
+                                    transactionCommand.ExecuteNonQuery();
+                                }
+
+                                // C. Update Product Stock
+                                string updateSql = "UPDATE Products SET StockQuantity = @newStock WHERE ProductID = @productId";
+                                using (var updateCommand = new SQLiteCommand(updateSql, connection))
+                                {
+                                    updateCommand.Parameters.AddWithValue("@newStock", stockAfter);
+                                    updateCommand.Parameters.AddWithValue("@productId", saleItem.ProductID);
+                                    updateCommand.ExecuteNonQuery();
+                                }
+                            }
+
+                            transaction.Commit();
+
+                            // Success! Exit the loop and the function.
+                            return;
                         }
-
-                        // Step 3: Create the Transaction log with a negative QuantityChange for deliveries.
-                        int stockBefore = saleItem.Product.StockQuantity;
-                        int stockAfter = stockBefore - saleItem.Quantity;
-
-                        // --- FIX #3: QuantityChange is now correctly stored as a negative number for deliveries ---
-                        int quantityChange = -saleItem.Quantity;
-
-                        string transactionSql = @"INSERT INTO Transactions (ProductID, TransactionType, QuantityChange, StockBefore, StockAfter, TransactionDate, SaleItemID) VALUES (@ProductID, 'Delivery', @QuantityChange, @StockBefore, @StockAfter, @TransactionDate, @SaleItemID)";
-                        using (var transactionCommand = new SQLiteCommand(transactionSql, connection))
+                        catch (Exception)
                         {
-                            transactionCommand.Parameters.AddWithValue("@ProductID", saleItem.ProductID);
-                            transactionCommand.Parameters.AddWithValue("@QuantityChange", quantityChange); // Using the negative value
-                            transactionCommand.Parameters.AddWithValue("@StockBefore", stockBefore);
-                            transactionCommand.Parameters.AddWithValue("@StockAfter", stockAfter);
-                            transactionCommand.Parameters.AddWithValue("@TransactionDate", DateTime.Now);
-                            transactionCommand.Parameters.AddWithValue("@SaleItemID", newSaleItemId);
-                            transactionCommand.ExecuteNonQuery();
+                            transaction.Rollback();
+                            throw; // Internal logic error, do not retry
                         }
-
-                        // Step 4: Update the product's stock.
-                        UpdateProductStock(saleItem.ProductID, stockAfter);
                     }
-
-                    // If all steps succeeded, commit the changes to the database.
-                    transaction.Commit();
                 }
-                catch (Exception)
+            }
+            catch (SQLiteException ex)
+            {
+                // If it's a LOCK error, wait and retry
+                if ((ex.ResultCode == SQLiteErrorCode.Busy || ex.ResultCode == SQLiteErrorCode.Locked || ex.Message.Contains("locked"))
+                    && i < MaxRetries - 1)
                 {
-                    // If any step failed, roll back all changes from this transaction.
-                    transaction.Rollback();
-                    throw; // Re-throw the exception to notify the UI
+                    System.Threading.Thread.Sleep(DelayMs);
+                    continue; // Loop again
                 }
+                throw; // If retries failed, show error
             }
         }
     }
@@ -1789,26 +1841,24 @@ public class DatabaseRepository
     public List<Product> SearchProducts(string searchTerm)
     {
         var products = new List<Product>();
-        // The LIKE query with '%' wildcards finds the search term anywhere in the text.
-        string sql = @"SELECT ProductID, Barcode, PartNumber, Brand, Description, Volume, Type, Application, PurchaseCost, SellingPrice, StockQuantity, Notes, LowStockThreshold, DateCreated, DateModified 
-                   FROM Products 
+        // === FIX 4: Added 'OR Barcode LIKE @term' ===
+        string sql = @"SELECT * FROM Products 
                    WHERE Description LIKE @term 
                    OR Brand LIKE @term 
                    OR PartNumber LIKE @term
-                   LIMIT 25;"; // We limit results to keep the UI responsive.
+                   OR Barcode LIKE @term 
+                   LIMIT 50;";
 
         using (var connection = new SQLiteConnection(connectionString))
         {
             connection.Open();
             using (var command = new SQLiteCommand(sql, connection))
             {
-                // We wrap the search term in '%' to find it anywhere in the string.
                 command.Parameters.AddWithValue("@term", $"%{searchTerm}%");
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        // This reuses the same mapping logic from your GetAllProducts method.
                         products.Add(new Product
                         {
                             ProductID = Convert.ToInt32(reader["ProductID"]),
