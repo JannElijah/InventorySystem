@@ -1,0 +1,64 @@
+import os
+import tempfile
+from reportlab.graphics.barcode import code128
+from reportlab.graphics.shapes import Drawing
+from reportlab.lib.pagesizes import mm
+from reportlab.pdfgen import canvas
+from reportlab.graphics import renderPDF
+
+class BarcodeGenerator:
+    def __init__(self):
+        pass
+
+    def generate_label(self, product_name, barcode_value, price):
+        """
+        Generates a barcode label PDF (approx 50mm x 30mm for thermal printers).
+        """
+        if not barcode_value or not barcode_value.strip():
+            print("Error: Empty barcode value")
+            return None
+            
+        # Code128 Support Check (Basic ASCII)
+        if not all(ord(c) < 128 for c in barcode_value):
+             print("Error: Barcode contains non-ASCII characters")
+             return None
+
+        try:
+            temp_dir = tempfile.gettempdir()
+            filename = f"label_{barcode_value}.pdf"
+            pdf_path = os.path.join(temp_dir, filename)
+
+            # Label Size (Standard Address Label approx 2x1 inch -> 50x25mm)
+            # Adjusting to 60mm x 40mm for better readability
+            width = 60 * mm
+            height = 40 * mm
+
+            c = canvas.Canvas(pdf_path, pagesize=(width, height))
+            
+            # Draw Product Name (Truncated)
+            c.setFont("Helvetica-Bold", 10)
+            c.drawCentredString(width / 2, height - 8 * mm, product_name[:25])
+
+            # Draw Barcode
+            # Code128 is robust. height=15mm, barWidth=1.2 (adjust for scaling)
+            barcode = code128.Code128(barcode_value, barHeight=15*mm, barWidth=1.2)
+            
+            # Draw directly on canvas
+            # Center roughly: x = (width - barcode_width) / 2
+            # For simplicity, we assume a reasonable starting X
+            barcode.drawOn(c, 5*mm, 15*mm)
+
+            # Draw Human Readable Code
+            c.setFont("Helvetica", 10)
+            c.drawCentredString(width / 2, 8 * mm, barcode_value)
+
+            # Draw Price
+            c.setFont("Helvetica-Bold", 12)
+            c.drawCentredString(width / 2, 3 * mm, f"${price:.2f}")
+
+            c.save()
+            return pdf_path
+
+        except Exception as e:
+            print(f"Barcode Generation Error: {e}")
+            return None
