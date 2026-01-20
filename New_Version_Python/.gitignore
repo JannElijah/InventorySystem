@@ -24,4 +24,4 @@ dist/*
 # We allow the root inventory.db as a template for clients
 # But we ignore others to prevent accidental commits of test DBs
 *.db
-# !inventory.db
+!inventory.db

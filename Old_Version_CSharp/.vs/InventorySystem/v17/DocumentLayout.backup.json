@@ -1,0 +1,626 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\InventorySystem_Github\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|InventorySystem||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:dashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|d:\\inventorysystem_github\\uctransactionhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:uctransactionhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\transactionitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:transactionitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\uctransactionhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:uctransactionhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\databaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:databaserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\transactionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:transactionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\notificationdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:notificationdetailform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\notificationsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:notificationsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\multitransactionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:multitransactionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|d:\\inventorysystem_github\\managesuppliersform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:managesuppliersform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\addproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:addproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|d:\\inventorysystem_github\\addeditsupplierform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:addeditsupplierform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\addedituserform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:addedituserform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\usermanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:usermanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|d:\\inventorysystem_github\\transactionhistoryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:transactionhistoryform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\transactionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:transactionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\reportsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:reportsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\reportsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:reportsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\reportsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:reportsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\dashboardtransactionview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:dashboardtransactionview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\addproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:addproductform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:notification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\dashboardform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:dashboardform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\supplyorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:supplyorder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\usermanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:usermanagementform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\multitransactionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:multitransactionform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\transactionform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:transactionform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|D:\\InventorySystem_Github\\notificationsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|solutionrelative:notificationsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88F5716F-1965-4E6E-9244-4FC3BABE83C5}|InventorySystem.csproj|d:\\inventorysystem_github\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InventorySystem",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\InventorySystem.csproj",
+              "RelativeDocumentMoniker": "InventorySystem.csproj",
+              "ToolTip": "D:\\InventorySystem_Github\\InventorySystem.csproj",
+              "RelativeToolTip": "InventorySystem.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-23T16:30:17.095Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DashboardForm.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\DashboardForm.cs",
+              "RelativeDocumentMoniker": "DashboardForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\DashboardForm.cs [Design]*",
+              "RelativeToolTip": "DashboardForm.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T11:13:30.919Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIUEAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T07:27:46.72Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ucTransactionHistory.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\ucTransactionHistory.cs",
+              "RelativeDocumentMoniker": "ucTransactionHistory.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\ucTransactionHistory.cs [Design]",
+              "RelativeToolTip": "ucTransactionHistory.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T17:03:33.93Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ucTransactionHistory.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\ucTransactionHistory.cs",
+              "RelativeDocumentMoniker": "ucTransactionHistory.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\ucTransactionHistory.cs",
+              "RelativeToolTip": "ucTransactionHistory.cs",
+              "ViewState": "AgIAADABAAAAAAAAAAAAwEkBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T08:31:50.05Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TransactionItem.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\TransactionItem.cs",
+              "RelativeDocumentMoniker": "TransactionItem.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\TransactionItem.cs",
+              "RelativeToolTip": "TransactionItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-15T15:27:59.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DatabaseRepository.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\DatabaseRepository.cs",
+              "RelativeDocumentMoniker": "DatabaseRepository.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\DatabaseRepository.cs",
+              "RelativeToolTip": "DatabaseRepository.cs",
+              "ViewState": "AgIAANwCAAAAAAAAAAAAANwCAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T08:17:19.459Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DashboardForm.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\DashboardForm.cs",
+              "RelativeDocumentMoniker": "DashboardForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\DashboardForm.cs*",
+              "RelativeToolTip": "DashboardForm.cs*",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:13:04.243Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\Form1.cs",
+              "RelativeDocumentMoniker": "Form1.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T07:12:13.749Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TransactionForm.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\TransactionForm.cs",
+              "RelativeDocumentMoniker": "TransactionForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\TransactionForm.cs [Design]",
+              "RelativeToolTip": "TransactionForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T07:31:59.608Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "NotificationsForm.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\NotificationsForm.cs",
+              "RelativeDocumentMoniker": "NotificationsForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\NotificationsForm.cs [Design]",
+              "RelativeToolTip": "NotificationsForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T09:52:00.924Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "NotificationDetailForm.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\NotificationDetailForm.cs",
+              "RelativeDocumentMoniker": "NotificationDetailForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\NotificationDetailForm.cs [Design]",
+              "RelativeToolTip": "NotificationDetailForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T13:13:00.177Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MultiTransactionForm.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\MultiTransactionForm.cs",
+              "RelativeDocumentMoniker": "MultiTransactionForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\MultiTransactionForm.cs [Design]",
+              "RelativeToolTip": "MultiTransactionForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-15T14:03:18.451Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AddProductForm.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\AddProductForm.cs",
+              "RelativeDocumentMoniker": "AddProductForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\AddProductForm.cs [Design]",
+              "RelativeToolTip": "AddProductForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T09:52:36.497Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ManageSuppliersForm.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\ManageSuppliersForm.cs",
+              "RelativeDocumentMoniker": "ManageSuppliersForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\ManageSuppliersForm.cs [Design]",
+              "RelativeToolTip": "ManageSuppliersForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T15:27:49.645Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AddEditSupplierForm.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\AddEditSupplierForm.cs",
+              "RelativeDocumentMoniker": "AddEditSupplierForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\AddEditSupplierForm.cs [Design]",
+              "RelativeToolTip": "AddEditSupplierForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T15:27:45.685Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UserManagementForm.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\UserManagementForm.cs",
+              "RelativeDocumentMoniker": "UserManagementForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\UserManagementForm.cs [Design]",
+              "RelativeToolTip": "UserManagementForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T06:31:21.779Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AddEditUserForm.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\AddEditUserForm.cs",
+              "RelativeDocumentMoniker": "AddEditUserForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\AddEditUserForm.cs [Design]",
+              "RelativeToolTip": "AddEditUserForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T15:06:10.99Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "TransactionHistoryForm.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\TransactionHistoryForm.cs",
+              "RelativeDocumentMoniker": "TransactionHistoryForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\TransactionHistoryForm.cs [Design]",
+              "RelativeToolTip": "TransactionHistoryForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T15:26:00.195Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "Form1.Designer.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\Form1.Designer.cs",
+              "RelativeToolTip": "Form1.Designer.cs",
+              "ViewState": "AgIAAGoCAAAAAAAAAAAkwHUCAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T08:25:24.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Sale.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\Sale.cs",
+              "RelativeDocumentMoniker": "Sale.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\Sale.cs",
+              "RelativeToolTip": "Sale.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA4wCQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T07:27:27.277Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TransactionForm.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\TransactionForm.cs",
+              "RelativeDocumentMoniker": "TransactionForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\TransactionForm.cs",
+              "RelativeToolTip": "TransactionForm.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAYwEQAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T07:33:03.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ReportsForm.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\ReportsForm.cs",
+              "RelativeDocumentMoniker": "ReportsForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\ReportsForm.cs",
+              "RelativeToolTip": "ReportsForm.cs",
+              "ViewState": "AgIAANAAAAAAAAAAAAAmwNwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T13:53:59.446Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ReportsForm.Designer.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\ReportsForm.Designer.cs",
+              "RelativeDocumentMoniker": "ReportsForm.Designer.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\ReportsForm.Designer.cs",
+              "RelativeToolTip": "ReportsForm.Designer.cs",
+              "ViewState": "AgIAAGgCAAAAAAAAAAArwHcCAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T13:58:52.555Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ReportsForm.cs [Design]",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\ReportsForm.cs",
+              "RelativeDocumentMoniker": "ReportsForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\ReportsForm.cs [Design]",
+              "RelativeToolTip": "ReportsForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T16:56:18.265Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "DashboardTransactionView.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\DashboardTransactionView.cs",
+              "RelativeDocumentMoniker": "DashboardTransactionView.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\DashboardTransactionView.cs",
+              "RelativeToolTip": "DashboardTransactionView.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA0wAYAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T08:32:10.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "AddProductForm.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\AddProductForm.cs",
+              "RelativeDocumentMoniker": "AddProductForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\AddProductForm.cs",
+              "RelativeToolTip": "AddProductForm.cs",
+              "ViewState": "AgIAAN4AAAAAAAAAAABRwOEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T09:59:22.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Notification.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\Notification.cs",
+              "RelativeDocumentMoniker": "Notification.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\Notification.cs",
+              "RelativeToolTip": "Notification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:16:57.006Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "DashboardForm.Designer.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\DashboardForm.Designer.cs",
+              "RelativeDocumentMoniker": "DashboardForm.Designer.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\DashboardForm.Designer.cs*",
+              "RelativeToolTip": "DashboardForm.Designer.cs*",
+              "ViewState": "AgIAABEAAAAAAAAAAIBZwBYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T11:12:30.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "SupplyOrder.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\SupplyOrder.cs",
+              "RelativeDocumentMoniker": "SupplyOrder.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\SupplyOrder.cs",
+              "RelativeToolTip": "SupplyOrder.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAxwBwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T11:24:47.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "UserManagementForm.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\UserManagementForm.cs",
+              "RelativeDocumentMoniker": "UserManagementForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\UserManagementForm.cs",
+              "RelativeToolTip": "UserManagementForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-16T06:31:27.528Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "MultiTransactionForm.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\MultiTransactionForm.cs",
+              "RelativeDocumentMoniker": "MultiTransactionForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\MultiTransactionForm.cs",
+              "RelativeToolTip": "MultiTransactionForm.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAuwB8AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-15T14:42:02.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\Transaction.cs",
+              "RelativeDocumentMoniker": "Transaction.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\Transaction.cs",
+              "RelativeToolTip": "Transaction.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA7wA0AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T10:19:42.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Supplier.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\Supplier.cs",
+              "RelativeDocumentMoniker": "Supplier.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\Supplier.cs",
+              "RelativeToolTip": "Supplier.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-15T15:11:46.502Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\Product.cs",
+              "RelativeDocumentMoniker": "Product.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\Product.cs",
+              "RelativeToolTip": "Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-15T15:08:25.811Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "TransactionForm.Designer.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\TransactionForm.Designer.cs",
+              "RelativeDocumentMoniker": "TransactionForm.Designer.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\TransactionForm.Designer.cs",
+              "RelativeToolTip": "TransactionForm.Designer.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAABRwBEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T08:17:59.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "NotificationsForm.cs",
+              "DocumentMoniker": "D:\\InventorySystem_Github\\NotificationsForm.cs",
+              "RelativeDocumentMoniker": "NotificationsForm.cs",
+              "ToolTip": "D:\\InventorySystem_Github\\NotificationsForm.cs",
+              "RelativeToolTip": "NotificationsForm.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAABRwBQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T10:07:39.097Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
