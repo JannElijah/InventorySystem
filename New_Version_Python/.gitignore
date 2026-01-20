@@ -1,0 +1,27 @@
+# Python / System
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+Thumbs.db
+
+# Logs & Backups
+logs/
+backups/
+
+# Build Files
+build/
+*.spec
+
+# Distribution (EXE)
+# Ignore everything in dist/ by default...
+dist/*
+# ... But Allow the main Executable
+!dist/InventorySystem.exe
+
+# Database
+# We allow the root inventory.db as a template for clients
+# But we ignore others to prevent accidental commits of test DBs
+*.db
+# !inventory.db
